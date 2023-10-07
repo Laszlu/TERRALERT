@@ -1,4 +1,4 @@
-import './App.css'
+import './App.css';
 import TestGlobe from './globe.tsx';
 
 function App() {
