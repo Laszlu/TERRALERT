@@ -1,6 +1,6 @@
-import './App.css';
-import TestGlobe from './globe.tsx';
-import ToggleButton from "./Toggle.tsx";
+import 'App.css';
+import TestGlobe from 'globe.tsx';
+import ToggleButton from "Toggle.tsx";
 
 function App() {
 
