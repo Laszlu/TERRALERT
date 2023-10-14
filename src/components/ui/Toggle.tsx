@@ -1,4 +1,4 @@
-interface toggleButtonProps {
+type toggleButtonProps = {
     buttonText: string,
 }
 
