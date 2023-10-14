@@ -1,22 +1,14 @@
 import '../assets/styles/App.css';
-import '../assets/styles/header.css'
-import TestGlobe from '../components/ui/globe.tsx';
-import ToggleButton from "../components/ui/Toggle.tsx";
-import MainHeader from '../components/ui/MainHeader.tsx';
+import { MainContentContainer } from '../components/ui/container/ContainerIndex.tsx';
+import { MainHeader } from '../components/ui/headers/HeaderIndex.tsx';
+import * as globalConstants from '../data/GlobalConstants.tsx';
+
 
 function App() {
-  let text = "button";
-
   return (
     <>
-    <MainHeader headerText="TERRALERT"/>
-    <div className="main-container">
-      <div>
-
-      </div>
-      <TestGlobe />
-      <ToggleButton buttonText={text}/>
-    </div>
+    <MainHeader headerText={globalConstants.APP_NAME}/>
+    <MainContentContainer />
     </>
   )
 }

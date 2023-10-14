@@ -1,3 +1,5 @@
+import '../../../assets/styles/header.css';
+
 type mainheaderprops = {
     headerText: string;
 }
