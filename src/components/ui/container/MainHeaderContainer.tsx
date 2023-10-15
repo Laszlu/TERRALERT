@@ -4,9 +4,9 @@ type mainheaderprops = {
     headerText: string;
 }
 
-function mainheader(props: mainheaderprops){
+function mainheadercontainer(props: mainheaderprops){
     return(
-        <div>
+        <div className='main-header'>
             <h1 className="main-h1">
                 {props.headerText}
             </h1>
@@ -14,4 +14,4 @@ function mainheader(props: mainheaderprops){
     )
 }
 
-export default mainheader;
+export default mainheadercontainer;

@@ -1,14 +1,4 @@
-#root {
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
-
 .title-container{
   width: 100%;
   
-}
-
-.main-container{
-  display: flex;
 }

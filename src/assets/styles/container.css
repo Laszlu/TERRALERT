@@ -1,0 +1,21 @@
+.main-container{
+    display: flex;
+    position: relative;
+    z-index: 1000;
+    background: none;
+    height: 100vh;
+  }
+
+.button-container{
+    position: fixed;
+    z-index: 1100;
+}
+
+.main-header{
+    height: 8vw;
+    width: 100%;
+    position: fixed;
+    z-index: 1100;
+    text-align: center;
+    background: none;
+}
