@@ -11,7 +11,6 @@ function globe(props: GlobeProps){
             <Globe
             globeImageUrl="//unpkg.com/three-globe/example/img/earth-blue-marble.jpg"
             backgroundImageUrl="//unpkg.com/three-globe/example/img/night-sky.png"
-            //backgroundColor='#000000'
             width={props.width}
             height={props.height}
             showAtmosphere={true}
