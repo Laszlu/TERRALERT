@@ -1,10 +1,18 @@
-.main-container{
+.main-controls-container{
     display: flex;
     position: relative;
-    z-index: 1000;
+    z-index: 1100;
     background: none;
     height: 100vh;
   }
+
+.globe-container{
+    display: flex;
+    position: relative;
+    z-index: 1100;
+    background: none;
+    height: 100vh;
+}
 
 .button-container{
     position: fixed;

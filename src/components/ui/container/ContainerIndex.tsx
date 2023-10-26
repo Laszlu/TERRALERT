@@ -1,4 +1,5 @@
-import MainContentContainer from './MainContentContainer';
+import MainControlsContainer from './MainControlsContainer';
 import MainHeaderContainer from './MainHeaderContainer';
+import GlobeContainer from './GlobeContainer';
 
-export { MainContentContainer, MainHeaderContainer };
+export { MainControlsContainer, MainHeaderContainer, GlobeContainer };
