@@ -1,3 +1,5 @@
+import '../../../assets/styles/button.css'
+
 type toggleButtonProps = {
     buttonText: string,
 }
@@ -5,7 +7,7 @@ type toggleButtonProps = {
 function toggleButton(props: toggleButtonProps){
     return(
         <>
-        <button >
+        <button className="toggle-button">
             {props.buttonText}
         </button>
         </>

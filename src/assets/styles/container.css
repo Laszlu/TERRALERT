@@ -1,29 +1,29 @@
 .main-controls-container{
     display: flex;
     position: relative;
-    z-index: 1100;
     background: none;
-    height: 100vh;
+    padding-top: 8vw;
+    float: left;
+    z-index: 1100;
   }
 
 .globe-container{
     display: flex;
     position: relative;
-    z-index: 1100;
     background: none;
     height: 100vh;
 }
 
 .button-container{
     position: fixed;
-    z-index: 1100;
+    display: flex;
 }
 
 .main-header{
     height: 8vw;
     width: 100%;
     position: fixed;
-    z-index: 1100;
+    z-index: 1200;
     text-align: center;
     background: none;
 }
