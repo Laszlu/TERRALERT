@@ -11,7 +11,7 @@ function App() {
   return (
     <>
     <MainHeaderContainer headerText={globalConstants.APP_NAME}/>
-    <MainControlsContainer/>
+    <MainControlsContainer width={width} height={height}/>
     <GlobeContainer width={width} height={height}/>
     </>
   )
