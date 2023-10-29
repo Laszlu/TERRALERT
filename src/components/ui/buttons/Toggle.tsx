@@ -2,7 +2,8 @@ import '../../../assets/styles/button.css'
 
 type toggleButtonProps = {
     buttonText: string,
-}
+    click: React.MouseEventHandler<HTMLElement>
+};
 
 function toggleButton(props: toggleButtonProps){
     return(
