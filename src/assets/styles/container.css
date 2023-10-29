@@ -19,6 +19,17 @@
     display: flex;
 }
 
+.first-row-buttons{
+    left: 2%;
+    top: 22%;
+}
+
+.second-row-buttons{
+    left: 2%;
+    top: 29%;
+
+}
+
 .main-header{
     height: 8vw;
     width: 100%;
@@ -26,4 +37,14 @@
     z-index: 1200;
     text-align: center;
     background: none;
+}
+
+.controls-header{
+    height: 3vw;
+    width: 22%;
+    position: fixed;
+    text-align: center;
+    background: none;
+    left: 2%;
+    top: 15%
 }

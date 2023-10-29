@@ -1,9 +1,14 @@
 
+type ContentHeaderProps = {
+    headerText: string;
+}
 
-function controlsHeader(){
+function controlsHeader(props: ContentHeaderProps){
     return(
-        <div>
-            
+        <div className="controls-header">
+            <h2 className="controls-h2">
+                {props.headerText}
+            </h2>
         </div>
     )
 }

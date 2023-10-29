@@ -1,4 +1,5 @@
 import { ToggleButton } from "../buttons/ButtonsIndex";
+import { ControlsHeader } from "../headers/HeaderIndex";
 import '../../../assets/styles/container.css';
 
 type ContainerProps = {
@@ -7,28 +8,14 @@ type ContainerProps = {
 }
 
 function mainControlsContainter(props: ContainerProps) {
-let distanceFromTop = props.height;
-let distanceFromLeft = props.width;
-
-const firstButtonContainerStyle = {
-  left: `${distanceFromLeft/100}px`
-}
-
-const secondButtonContainerStyle = {
-  left: `${distanceFromLeft/100}px`,
-  top: `${distanceFromTop/5.3}px`
-}
-
-console.log(secondButtonContainerStyle);
-
-
   return (
     <div className="main-controls-container">
-      <div className="button-container" style={firstButtonContainerStyle}>
+      <ControlsHeader headerText="Controls"/>
+      <div className="button-container first-row-buttons">
         <ToggleButton buttonText="Button1" />
         <ToggleButton buttonText="Button2" />
       </div>
-      <div className="button-container" style={secondButtonContainerStyle}>
+      <div className="button-container second-row-buttons">
         <ToggleButton buttonText="Button3" />
         <ToggleButton buttonText="Button4" />
       </div>

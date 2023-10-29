@@ -1,10 +1,10 @@
 import '../../../assets/styles/header.css';
 
-type mainheaderprops = {
+type MainHeaderProps = {
     headerText: string;
 }
 
-function mainheadercontainer(props: mainheaderprops){
+function mainheadercontainer(props: MainHeaderProps){
     return(
         <div className='main-header'>
             <h1 className="main-h1">
