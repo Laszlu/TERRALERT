@@ -1,4 +1,5 @@
 import Globe from 'react-globe.gl';
+import { useState, useEffect, useRef } from 'react';
 
 type GlobeProps = {
     width: number;
@@ -6,6 +7,9 @@ type GlobeProps = {
 }
 
 function globe(props: GlobeProps){
+
+
+
     return(
         <>
             <Globe
@@ -15,6 +19,7 @@ function globe(props: GlobeProps){
             height={props.height}
             showAtmosphere={true}
             showGraticules={true}
+            //customLayerData={}
             />
         </>
     )

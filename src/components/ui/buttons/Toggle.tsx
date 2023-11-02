@@ -8,7 +8,7 @@ type toggleButtonProps = {
 function toggleButton(props: toggleButtonProps){
     return(
         <>
-        <button className="toggle-button">
+        <button className="toggle-button" onClick={props.click}>
             {props.buttonText}
         </button>
         </>
