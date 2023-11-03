@@ -1,6 +1,6 @@
 import { ToggleButton } from "../buttons/ButtonsIndex";
 import { ControlsHeader } from "../headers/HeaderIndex";
-import {useFetchHook} from '../../../utilities/UtilitiesIndex';
+import { useFetchHook } from '../../../utilities/UtilitiesIndex';
 import '../../../assets/styles/container.css';
 
 type ContainerProps = {
