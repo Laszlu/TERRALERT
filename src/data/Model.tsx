@@ -40,7 +40,18 @@ export class Geometrie {
 	}
 }
 
-export class MovingEvent {
+export interface INaturalEvent {
+	id: string;
+	title: string;
+	description: string;
+	link: string;
+	categories: Categorie;
+	sources: Source[];
+	geometry: Geometrie[];
+	closed: string;
+}
+
+export class NaturalEvent {
 	public id: string;
 	public title: string;
 	public description: string;
@@ -71,33 +82,3 @@ export class MovingEvent {
 	}
 }
 
-export class StationaryEvent {
-	public id: string;
-	public title: string;
-	public description: string;
-	public link: string;
-	public categories: Categorie;
-	public sources: Source[];
-	public geometries: Geometrie;
-	public closed: string;
-
-	public constructor(
-		id: string,
-		title: string,
-		description: string,
-		link: string,
-		categories: Categorie,
-		sources: Source[],
-		geometries: Geometrie,
-		closed: string
-	) {
-		this.id = id;
-		this.title = title;
-		this.description = description;
-		this.link = link;
-		this.categories = categories;
-		this.sources = sources;
-		this.geometries = geometries;
-		this.closed = closed;
-	}
-}
