@@ -1,7 +1,7 @@
 import { ToggleButton } from "../buttons/ButtonsIndex";
 import { ControlsHeader } from "../headers/HeaderIndex";
 import { useFetchHook } from "../../../utilities/UtilitiesIndex";
-import { Storm } from "../../../data/Model";
+import { MovingEvent } from "../../../data/Model";
 import "../../../assets/styles/container.css";
 
 type ContainerProps = {
@@ -14,12 +14,12 @@ function testButtonClick() {
 }
 
 function mainControlsContainter(props: ContainerProps) {
-	const stormPilar = useFetchHook<Storm>(
-		"https://eonet.gsfc.nasa.gov/api/v2.1/events/EONET_6447"
+	const testStorm = useFetchHook<MovingEvent>(
+		"https://eonet.gsfc.nasa.gov/api/v3/events/EONET_6451"
 	);
 
 	function testApiFetch() {
-		console.log(stormPilar.data?.id);
+		console.log(testStorm.data?.id);
 	}
 
 	return (

@@ -19,25 +19,35 @@ export class Source {
 }
 
 export class Geometrie {
+	public magnitudeValue: number;
+	public magnitudeUnit: string;
 	public date: string;
 	public type: string;
 	public coordinates: number[];
 
-	public constructor(date: string, type: string, coordinates: number[]) {
+	public constructor(
+		magnitudeValue: number,
+		magnitudeUnit: string,
+		date: string,
+		type: string,
+		coordinates: number[]
+	) {
+		this.magnitudeValue = magnitudeValue;
+		this.magnitudeUnit = magnitudeUnit;
 		this.date = date;
 		this.type = type;
 		this.coordinates = coordinates;
 	}
 }
 
-export class Storm {
+export class MovingEvent {
 	public id: string;
 	public title: string;
 	public description: string;
 	public link: string;
 	public categories: Categorie;
 	public sources: Source[];
-	public geometries: Geometrie[];
+	public geometry: Geometrie[];
 	public closed: string;
 
 	public constructor(
@@ -47,7 +57,38 @@ export class Storm {
 		link: string,
 		categories: Categorie,
 		sources: Source[],
-		geometries: Geometrie[],
+		geometry: Geometrie[],
+		closed: string
+	) {
+		this.id = id;
+		this.title = title;
+		this.description = description;
+		this.link = link;
+		this.categories = categories;
+		this.sources = sources;
+		this.geometry = geometry;
+		this.closed = closed;
+	}
+}
+
+export class StationaryEvent {
+	public id: string;
+	public title: string;
+	public description: string;
+	public link: string;
+	public categories: Categorie;
+	public sources: Source[];
+	public geometries: Geometrie;
+	public closed: string;
+
+	public constructor(
+		id: string,
+		title: string,
+		description: string,
+		link: string,
+		categories: Categorie,
+		sources: Source[],
+		geometries: Geometrie,
 		closed: string
 	) {
 		this.id = id;
@@ -60,4 +101,3 @@ export class Storm {
 		this.closed = closed;
 	}
 }
-
