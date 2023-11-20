@@ -13,7 +13,7 @@ function testButtonClick() {
 	console.log("button clicked");
 }
 
-function mainControlsContainter(props: ContainerProps) {
+function mainControlsContainer(props: ContainerProps) {
 	const testStorm = useFetchHook<NaturalEvent>(
 		"https://eonet.gsfc.nasa.gov/api/v3/events/EONET_6451"
 	);
@@ -49,5 +49,5 @@ function mainControlsContainter(props: ContainerProps) {
 	);
 }
 
-export default mainControlsContainter;
+export default mainControlsContainer;
 
