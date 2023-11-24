@@ -1,6 +1,16 @@
-.toggle-button{
+.layer-toggle{
     height: 5vh;
-    width: 10vw;
-    margin-right: 2vw;
-    
+    /*width: 15vw;*/
+    margin-left: 1vw !important;
+    margin-top: 1.5vh !important;
+    margin-bottom: 1.5vh !important;
+    text-align: left;
+    display: flex;
+    justify-content: left;
+    align-content: center;
 }
+
+/*
+.layer-toggle-div{
+    display: flex;
+}*/

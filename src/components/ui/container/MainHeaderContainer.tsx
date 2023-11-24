@@ -1,4 +1,4 @@
-import '../../../assets/styles/header.css';
+import '../../../assets/styles/Text.css';
 
 type MainHeaderProps = {
     headerText: string;

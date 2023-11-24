@@ -1,8 +1,7 @@
 .main-controls-container{
     display: flex;
     position: relative;
-    background: none;
-    padding-top: 8vw;
+    background: none ;
     float: left;
     z-index: 1100;
   }
@@ -16,7 +15,12 @@
 
 .button-container{
     position: fixed;
-    display: flex;
+    display: grid;
+    width: 20vw;
+    background: rgb(211 211 211 / 0.4);
+    padding: 20px 0 20px 5px;
+    border-radius: 10px;
+    margin-top: 1vh;
 }
 
 .first-row-buttons{
@@ -24,11 +28,10 @@
     top: 22%;
 }
 
-.second-row-buttons{
+/*.second-row-buttons{
     left: 2%;
     top: 29%;
-
-}
+}*/
 
 .main-header{
     height: 8vw;

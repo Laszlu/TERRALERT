@@ -1,17 +1,25 @@
+import Switch from '@mui/material/Switch';
 import '../../../assets/styles/button.css'
+import '../../../assets/styles/Image.css'
+import '../../../assets/styles/Text.css'
+import React from "react";
 
 type toggleButtonProps = {
-    buttonText: string,
-    click: React.MouseEventHandler<HTMLElement>
+    buttonLabel: string,
+    imgPath: string,
+    imgAlt : string,
+    toggle: React.MouseEventHandler<HTMLElement>
 };
 
 function toggleButton(props: toggleButtonProps){
     return(
-        <>
-        <button className="toggle-button" onClick={props.click}>
-            {props.buttonText}
-        </button>
-        </>
+        <div className={"layer-toggle"}>
+            <Switch/>
+            <img className={"toggle-img"} src={props.imgPath} alt={props.imgAlt}/>
+            <label className={"toggle-label"}>
+                {props.buttonLabel}
+            </label>
+        </div>
     )
 }
 
