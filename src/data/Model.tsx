@@ -40,17 +40,6 @@ export class Geometrie {
 	}
 }
 
-export interface INaturalEvent {
-	id: string;
-	title: string;
-	description: string;
-	link: string;
-	categories: Categorie;
-	sources: Source[];
-	geometry: Geometrie[];
-	closed: string;
-}
-
 export class NaturalEvent {
 	public id: string;
 	public title: string;
