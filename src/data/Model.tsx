@@ -45,7 +45,7 @@ export class NaturalEvent {
 	public title: string;
 	public description: string;
 	public link: string;
-	public categories: Categorie;
+	public categories: Categorie[];
 	public sources: Source[];
 	public geometry: Geometrie[];
 	public closed: string;
@@ -55,7 +55,7 @@ export class NaturalEvent {
 		title: string,
 		description: string,
 		link: string,
-		categories: Categorie,
+		categories: Categorie[],
 		sources: Source[],
 		geometry: Geometrie[],
 		closed: string

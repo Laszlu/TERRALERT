@@ -5,12 +5,30 @@
 }
 
 .controls-h2{
+    font-size: 5vh;
+    margin: 0 !important;
+    /*margin: 0 0 0 4.5vw;
+    text-align: left;*/
+}
+
+.viewer-h2{
     font-size: 4vh;
-    margin: 0 0 0 4.5vw;
-    text-align: left;
+    margin: 0 !important;
 }
 
 .toggle-label{
     margin-left: 2vw;
     font-weight: bold;
+}
+
+.viewer-category{
+    text-align: center !important;
+}
+
+.viewer-id{
+
+}
+
+.viewer-geometry{
+    text-align: left;
 }

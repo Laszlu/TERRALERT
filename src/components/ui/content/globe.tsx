@@ -1,5 +1,5 @@
 import Globe from 'react-globe.gl';
-import {NaturalEvent} from "../../../data/Model.tsx";
+//import {NaturalEvent} from "../../../data/Model.tsx";
 
 type GlobeProps = {
     width: number;

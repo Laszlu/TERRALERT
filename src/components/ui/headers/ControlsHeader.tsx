@@ -1,9 +1,11 @@
+import '../../../assets/styles/Text.css';
+
 
 type ContentHeaderProps = {
     headerText: string;
 }
 
-function controlsHeader(props: ContentHeaderProps){
+function ControlsHeader(props: ContentHeaderProps){
     return(
         <div className="controls-header">
             <h2 className="controls-h2">
@@ -13,4 +15,4 @@ function controlsHeader(props: ContentHeaderProps){
     )
 }
 
-export default controlsHeader;
+export default ControlsHeader;

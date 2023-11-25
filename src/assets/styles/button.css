@@ -1,9 +1,9 @@
 .layer-toggle{
-    height: 5vh;
+    /*height: 5vh;*/
     /*width: 15vw;*/
     margin-left: 1vw !important;
-    margin-top: 1.5vh !important;
-    margin-bottom: 1.5vh !important;
+    margin-top: 3.5vh !important;
+    /*margin-bottom: 0vh !important;*/
     text-align: left;
     display: flex;
     justify-content: left;

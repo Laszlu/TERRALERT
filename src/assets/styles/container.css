@@ -6,6 +6,38 @@
     z-index: 1100;
   }
 
+.controls-background{
+    position: fixed;
+    width: 21vw;
+    height: 70vh;
+    background: rgb(211 211 211 / 0.4);
+    border-radius: 10px;
+    left: 2%;
+    top: 15%;
+}
+
+.viewer-container{
+    display: flex;
+    position: relative;
+    background: none ;
+    float: right;
+    z-index: 1100;
+}
+
+.viewer-background{
+    position: fixed;
+    width: 21vw;
+    height: 70vh;
+    background: rgb(211 211 211 / 0.4);
+    border-radius: 10px;
+    left: 76.5%;
+    top: 15%;
+}
+
+.viewer-label-container{
+    padding-left: 2vw;
+}
+
 .globe-container{
     display: flex;
     position: relative;
@@ -14,24 +46,13 @@
 }
 
 .button-container{
-    position: fixed;
-    display: grid;
-    width: 20vw;
-    background: rgb(211 211 211 / 0.4);
-    padding: 20px 0 20px 5px;
-    border-radius: 10px;
-    margin-top: 1vh;
+    /*position: fixed;*/
+    /*display: grid;*/
+    width: inherit;
+    background: transparent;
+    /*padding: 20px 0 20px 5px;*/
+    margin-top: 2vh;
 }
-
-.first-row-buttons{
-    left: 2%;
-    top: 22%;
-}
-
-/*.second-row-buttons{
-    left: 2%;
-    top: 29%;
-}*/
 
 .main-header{
     height: 8vw;
@@ -43,11 +64,18 @@
 }
 
 .controls-header{
-    height: 3vw;
-    width: 22%;
-    position: fixed;
+    /*height: 3vw;*/
+    /*width: 22%;
+    position: fixed;*/
+    padding-top: 1vh;
     text-align: center;
     background: none;
-    left: 2%;
-    top: 15%
+    /*left: 2%;
+    top: 15%*/
+}
+
+.viewer-header{
+    padding-top: 1vh;
+    text-align: center;
+    background: none;
 }
