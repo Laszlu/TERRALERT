@@ -14,6 +14,7 @@
 .viewer-h2{
     font-size: 4vh;
     margin: 0 !important;
+    width: 20vw;
 }
 
 .toggle-label{

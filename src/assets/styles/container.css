@@ -76,6 +76,30 @@
 
 .viewer-header{
     padding-top: 1vh;
+    margin-bottom: 3vh;
     text-align: center;
     background: none;
+}
+
+.data-table-row-outer{
+    height: 5vh;
+}
+
+.data-table-row-inner{
+    height: 3vh;
+}
+
+.data-table-outer-td-left{
+    width: 5vw;
+    font-weight: bold;
+}
+
+.data-table-outer-date{
+    font-weight: bold;
+    border-top: 1px solid white;
+}
+
+.data-table-inner-td-left{
+    width: 7vw;
+    font-weight: bold;
 }

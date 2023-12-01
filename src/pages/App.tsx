@@ -20,16 +20,25 @@ function App() {
 
   const { width, height } = useWindowDimensions();
 
-  let testEvent = (useFetchHook<NaturalEvent>(
+  const {isLoading, data, error} =
+      useFetchHook<NaturalEvent>(
       "https://eonet.gsfc.nasa.gov/api/v3/events/EONET_6451"
-  ).data as NaturalEvent);
+  );
 
-  return <>
-    <MainHeaderContainer headerText={globalConstants.APP_NAME}/>
-    <MainControlsContainer/>
-    <GlobeContainer width={width} height={height} imgPath={"src/assets/images/hurricane.png"} data={testData} click={() => TestClick()}/>
-    <EventViewer event={testEvent}/>
-  </>
+  return isLoading ? (
+      <>
+        <MainHeaderContainer headerText={globalConstants.APP_NAME}/>
+        <MainControlsContainer/>
+        <GlobeContainer width={width} height={height} imgPath={"src/assets/images/hurricane.png"} data={testData} click={() => TestClick()}/>
+      </>
+  ) : (
+      <>
+        <MainHeaderContainer headerText={globalConstants.APP_NAME}/>
+        <MainControlsContainer/>
+        <GlobeContainer width={width} height={height} imgPath={"src/assets/images/hurricane.png"} data={testData} click={() => TestClick()}/>
+        <EventViewer event={data as NaturalEvent} />
+      </>
+  )
 }
 
 export default App
