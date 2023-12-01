@@ -18,7 +18,7 @@ export class Source {
 	}
 }
 
-export class Geometrie {
+export class Geometry {
 	public magnitudeValue: number;
 	public magnitudeUnit: string;
 	public date: string;
@@ -47,7 +47,7 @@ export class NaturalEvent {
 	public link: string;
 	public categories: Categorie[];
 	public sources: Source[];
-	public geometry: Geometrie[];
+	public geometry: Geometry[];
 	public closed: string;
 
 	public constructor(
@@ -57,7 +57,7 @@ export class NaturalEvent {
 		link: string,
 		categories: Categorie[],
 		sources: Source[],
-		geometry: Geometrie[],
+		geometry: Geometry[],
 		closed: string
 	) {
 		this.id = id;
