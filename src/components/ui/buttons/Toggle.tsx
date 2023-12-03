@@ -3,24 +3,119 @@ import '../../../assets/styles/button.css'
 import '../../../assets/styles/Image.css'
 import '../../../assets/styles/Text.css'
 import React from "react";
+import {EventCategory} from "../../../data/Model.tsx";
+import {FormControl, FormControlLabel, FormGroup, FormLabel} from "@mui/material";
 
 type toggleButtonProps = {
-    buttonLabel: string,
     imgPath: string,
     imgAlt : string,
-    toggle: React.MouseEventHandler<HTMLElement>
+    setCategory: React.Dispatch<React.SetStateAction<EventCategory>>;
+    category: EventCategory;
 };
 
-function toggleButton(props: toggleButtonProps){
+const ToggleGroup: React.FC<toggleButtonProps> =
+    ({imgPath, imgAlt, setCategory, category}) => {
+
+    const [state, setState] = React.useState(category);
+
+    const handleChange = (cat: EventCategory) => {
+        setState(cat);
+        setCategory(cat);
+        console.log(category);
+    };
+
     return(
-        <div className={"layer-toggle"}>
-            <Switch/>
-            <img className={"toggle-img"} src={props.imgPath} alt={props.imgAlt}/>
-            <label className={"toggle-label"}>
-                {props.buttonLabel}
-            </label>
-        </div>
+
+        <FormControl component={"fieldset"} variant={"standard"}>
+            <FormLabel component={"legend"}></FormLabel>
+            <FormGroup>
+                <FormControlLabel
+                    control={
+                        <Switch
+                            checked={state === EventCategory.Storms}
+                            onChange={() => {
+                                handleChange(EventCategory.Storms);
+                            }}
+                            inputProps={{ 'aria-label': 'controlled' }}
+                        />
+                    }
+                    label={"Storms"}
+                />
+                <FormControlLabel
+                    control={
+                        <Switch
+                            checked={state === EventCategory.Wildfires}
+                            onChange={() => {
+                                handleChange(EventCategory.Wildfires);
+                            }}
+                            inputProps={{ 'aria-label': 'controlled' }}
+                        />
+                    }
+                    label={"Wildfires"}
+                />
+                <FormControlLabel
+                    control={
+                        <Switch
+                            checked={state === EventCategory.Volcanoes}
+                            onChange={() => {
+                                handleChange(EventCategory.Volcanoes);
+                            }}
+                            inputProps={{ 'aria-label': 'controlled' }}
+                        />
+                    }
+                    label={"Volcanoes"}
+                />
+                <FormControlLabel
+                    control={
+                        <Switch
+                            checked={state === EventCategory.Earthquakes}
+                            onChange={() => {
+                                handleChange(EventCategory.Earthquakes);
+                            }}
+                            inputProps={{ 'aria-label': 'controlled' }}
+                        />
+                    }
+                    label={"Earthquakes"}
+                />
+                <FormControlLabel
+                    control={
+                        <Switch
+                            checked={state === EventCategory.Floods}
+                            onChange={() => {
+                                handleChange(EventCategory.Floods);
+                            }}
+                            inputProps={{ 'aria-label': 'controlled' }}
+                        />
+                    }
+                    label={"Floods"}
+                />
+                <FormControlLabel
+                    control={
+                        <Switch
+                            checked={state === EventCategory.Landslides}
+                            onChange={() => {
+                                handleChange(EventCategory.Landslides);
+                            }}
+                            inputProps={{ 'aria-label': 'controlled' }}
+                        />
+                    }
+                    label={"Landslides"}
+                />
+                <FormControlLabel
+                    control={
+                        <Switch
+                            checked={state === EventCategory.ExtremeTemperatures}
+                            onChange={() => {
+                                handleChange(EventCategory.ExtremeTemperatures);
+                            }}
+                            inputProps={{ 'aria-label': 'controlled' }}
+                        />
+                    }
+                    label={"Extreme Temperatures"}
+                />
+            </FormGroup>
+        </FormControl>
     )
 }
 
-export default toggleButton;
+export default ToggleGroup;

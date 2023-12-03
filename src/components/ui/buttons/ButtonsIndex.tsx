@@ -1,3 +1,3 @@
-import ToggleButton from "./Toggle.tsx";
+import ToggleGroup from "./Toggle.tsx";
 
-export {ToggleButton};
+export {ToggleGroup};

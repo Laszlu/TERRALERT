@@ -1,8 +1,18 @@
+export enum EventCategory {
+	Storms = "severeStorms",
+	Wildfires = "wildfires",
+	Volcanoes = "volcanoes",
+	Earthquakes = "earthquakes",
+	Floods = "floods",
+	Landslides = "landslides",
+	ExtremeTemperatures = "tempExtremes"
+}
+
 export class Categorie {
-	public id: number;
+	public id: string;
 	public title: string;
 
-	public constructor(id: number, title: string) {
+	public constructor(id: string, title: string) {
 		this.id = id;
 		this.title = title;
 	}
@@ -71,3 +81,21 @@ export class NaturalEvent {
 	}
 }
 
+export class EventList {
+	public title: string;
+	public description: string;
+	public link: string;
+	public events: NaturalEvent[];
+
+	public constructor(
+		title: string,
+		description: string,
+		link: string,
+		events: NaturalEvent[]
+	) {
+		this.title = title;
+		this.description = description;
+		this.link = link;
+		this.events = events;
+	}
+}

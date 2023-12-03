@@ -1,69 +1,27 @@
-import { ToggleButton } from "../buttons/ButtonsIndex";
-import { ControlsHeader } from "../headers/HeaderIndex";
-import { useFetchHook } from "../../../utilities/UtilitiesIndex";
-import { NaturalEvent } from "../../../data/Model";
+import {ToggleGroup} from "../buttons/ButtonsIndex";
+import {ControlsHeader} from "../headers/HeaderIndex";
+import {EventCategory} from "../../../data/Model";
 import "../../../assets/styles/container.css";
+import React from "react";
 
-/*type ContainerProps = {
-	height: number;
-	width: number;
-};*/
-
-function testButtonClick() {
-	console.log("button clicked");
+interface IMainControlsContainerProps {
+	category: EventCategory;
+	setCategory: React.Dispatch<React.SetStateAction<EventCategory>>;
 }
 
-function mainControlsContainer() {
-	const testStorm = useFetchHook<NaturalEvent>(
-		"https://eonet.gsfc.nasa.gov/api/v3/events/EONET_6451"
-	);
-
-	function testApiFetch() {
-		console.log(testStorm.data?.id);
-	}
+function mainControlsContainer(props: IMainControlsContainerProps) {
 
 	return (
 		<div className={"main-controls-container"}>
 			<div className={"controls-background"}>
 				<ControlsHeader headerText="Events" />
 				<div className={"button-container"}>
-					<ToggleButton
-						buttonLabel={"Storms"}
+					<ToggleGroup
 						imgPath={"src/assets/images/hurricane.png"}
 						imgAlt={"Hurricane Icon"}
-						toggle={testButtonClick}
+						setCategory={props.setCategory}
+						category={props.category}
 					/>
-					<ToggleButton
-						buttonLabel="Widlfires"
-						imgPath={"src/assets/images/fire.png"}
-						imgAlt={"Wildfires Icon"}
-						toggle={testApiFetch}
-					/>
-					<ToggleButton
-						buttonLabel="Volcanoes"
-						imgPath={"src/assets/images/volcano.png"}
-						imgAlt={"Volcano Icon"}
-						toggle={testApiFetch}/>
-					<ToggleButton
-						buttonLabel="Earthquakes"
-						imgPath={"src/assets/images/earthquake.png"}
-						imgAlt={"Earthquake Icon"}
-						toggle={testApiFetch}/>
-					<ToggleButton
-						buttonLabel="Floods"
-						imgPath={"src/assets/images/flood.png"}
-						imgAlt={"Flood Icon"}
-						toggle={testApiFetch}/>
-					<ToggleButton
-						buttonLabel="Landslides"
-						imgPath={"src/assets/images/landslide.png"}
-						imgAlt={"Landslide Icon"}
-						toggle={testApiFetch}/>
-					<ToggleButton
-						buttonLabel="Extreme Temperatures"
-						imgPath={"src/assets/images/global-warming.png"}
-						imgAlt={"Extreme Temp Icon"}
-						toggle={testApiFetch}/>
 				</div>
 			</div>
 		</div>

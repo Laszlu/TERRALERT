@@ -5,15 +5,16 @@ import {NaturalEvent} from "../../../data/Model.tsx";
 type GlobeContainerProps = {
     width: number;
     height: number;
+    isLoading: boolean;
     imgPath: string;
-    data: object[];
+    data: NaturalEvent[];
     click: (params: void) => void;
   }
 
 function globeContainer(props: GlobeContainerProps){
     return(
         <div className='globe-container'>
-            <Globe width={props.width} height={props.height} imgPath={props.imgPath} data={props.data} click={props.click}/>
+            <Globe width={props.width} height={props.height} isLoading={props.isLoading} imgPath={props.imgPath} data={props.data} click={props.click}/>
         </div>
         
     )
