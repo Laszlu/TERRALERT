@@ -1,13 +1,12 @@
 import '../assets/styles/App.css';
 import {
-    EventViewer,
     GlobeContainer,
     MainControlsContainer,
     MainHeaderContainer
 } from '../components/ui/container/ContainerIndex.tsx';
 import * as globalConstants from '../data/GlobalConstants.tsx';
 import useWindowDimensions from '../hooks/WindowDimensionsHook.tsx';
-import {EventCategory, EventList} from '../data/Model.tsx';
+import {EventCategory, EventList, NaturalEvent} from '../data/Model.tsx';
 import useFetchHook from 'react-fetch-hook';
 import {useState} from "react";
 
@@ -23,7 +22,8 @@ function SwitchCategory(type: EventCategory, data: EventList) {
             dataSubset = data.events.filter(e => e.categories[0].id === EventCategory.Storms);
             return dataSubset;
         case EventCategory.Earthquakes:
-            dataSubset = data.events.filter(e => e.categories[0].id === EventCategory.Earthquakes);
+            dataSubset = data.events.filter(e => e.categories[0].id === EventCategory.Storms);
+            //dataSubset = data.events.filter(e => e.categories[0].id === EventCategory.Earthquakes);
             return dataSubset;
         case EventCategory.Volcanoes:
             dataSubset = data.events.filter(e => e.categories[0].id === EventCategory.Volcanoes);
@@ -40,6 +40,9 @@ function SwitchCategory(type: EventCategory, data: EventList) {
         case EventCategory.ExtremeTemperatures:
             dataSubset = data.events.filter(e => e.categories[0].id === EventCategory.ExtremeTemperatures);
             return dataSubset;
+        case EventCategory.None:
+            dataSubset = new Array<NaturalEvent>();
+            return dataSubset;
     }
 }
 
@@ -50,7 +53,7 @@ function App() {
 
   const {isLoading, data, error} =
       useFetchHook<EventList>(
-      "https://eonet.gsfc.nasa.gov/api/v3/events?days=30"
+      "https://eonet.gsfc.nasa.gov/api/v3/events"
   );
 
   if (isLoading) {
@@ -62,8 +65,8 @@ function App() {
               <GlobeContainer width={width}
                               height={height}
                               isLoading={isLoading}
-                              imgPath={"src/assets/images/hurricane.png"}
                               data={[]}
+                              category={EventCategory.None}
                               click={() => TestClick()}/>
           </>
       )
@@ -83,9 +86,9 @@ function App() {
               <MainControlsContainer category={category} setCategory={setCategory}/>
               <GlobeContainer width={width}
                               height={height}
-                              imgPath={"src/assets/images/Storm.png"}
                               data={Events}
                               isLoading={isLoading}
+                              category={category}
                               click={() => TestClick()}/>
               {/*<EventViewer event={Events[0] as NaturalEvent} /> TODO: Open Eventviewer onclick */}
           </>

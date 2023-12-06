@@ -13,11 +13,14 @@
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
     "@mui/material": "^5.14.18",
+    "@reduxjs/toolkit": "^2.0.1",
+    "@tanstack/react-query": "^5.12.2",
     "axios": "^1.6.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-fetch-hook": "^1.9.5",
-    "react-globe.gl": "github:vasturiano/react-globe.gl"
+    "react-globe.gl": "github:vasturiano/react-globe.gl",
+    "react-redux": "^9.0.2"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",
