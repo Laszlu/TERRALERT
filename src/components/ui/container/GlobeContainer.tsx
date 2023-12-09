@@ -79,19 +79,140 @@ function globeContainer(props: GlobeContainerProps){
                             return el;
                         }}
                         ringsData={EventData}
+                        ringRepeatPeriod={400}
+                        ringPropagationSpeed={0.5}
+                        ringColor={() => "#EE4B2B"}
                     />
                 </div>
             )
 
         case EventCategory.Volcanoes:
+            eventIcon =
+                `<img src=\"${globalConstants.VOLCANO_ICON_PATH}\" height=\"75px\" alt=\"Event Icon\"/>`;
+
+            return(
+                <div className='globe-container'>
+                    <Globe
+                        globeImageUrl='//unpkg.com/three-globe/example/img/earth-blue-marble.jpg'
+                        backgroundImageUrl='//unpkg.com/three-globe/example/img/night-sky.png'
+                        width={props.width}
+                        height={props.height}
+                        showAtmosphere={true}
+                        showGraticules={true}
+                        htmlElementsData={EventData}
+                        htmlElement={() => {
+                            const el = document.createElement('div');
+                            el.innerHTML = eventIcon;
+                            el.style.width = '100px';
+                            el.style.height = '100px';
+                            el.style['pointerEvents'] = 'auto';
+                            el.style.cursor = 'pointer';
+                            el.onclick = () => console.log(el);
+                            return el;
+                        }}
+                    />
+                </div>
+            )
 
         case EventCategory.Wildfires:
+            eventIcon =
+                `<img src=\"${globalConstants.WILDFIRE_ICON_PATH}\" height=\"75px\" alt=\"Event Icon\"/>`;
+
+            return(
+                <div className='globe-container'>
+                    <Globe
+                        globeImageUrl='//unpkg.com/three-globe/example/img/earth-blue-marble.jpg'
+                        backgroundImageUrl='//unpkg.com/three-globe/example/img/night-sky.png'
+                        width={props.width}
+                        height={props.height}
+                        showAtmosphere={true}
+                        showGraticules={true}
+                        htmlElementsData={EventData}
+                        htmlElement={() => {
+                            const el = document.createElement('div');
+                            el.innerHTML = eventIcon;
+                            el.style.width = '100px';
+                            el.style.height = '100px';
+                            el.style['pointerEvents'] = 'auto';
+                            el.style.cursor = 'pointer';
+                            el.onclick = () => console.log(el);
+                            return el;
+                        }}
+                    />
+                </div>
+            )
 
         case EventCategory.Floods:
+            eventIcon =
+                `<img src=\"${globalConstants.FLOOD_ICON_PATH}\" height=\"75px\" alt=\"Event Icon\"/>`;
+
+            return(
+                <div className='globe-container'>
+                    <Globe
+                        globeImageUrl='//unpkg.com/three-globe/example/img/earth-blue-marble.jpg'
+                        backgroundImageUrl='//unpkg.com/three-globe/example/img/night-sky.png'
+                        width={props.width}
+                        height={props.height}
+                        showAtmosphere={true}
+                        showGraticules={true}
+                        htmlElementsData={EventData}
+                        htmlElement={() => {
+                            const el = document.createElement('div');
+                            el.innerHTML = eventIcon;
+                            el.style.width = '100px';
+                            el.style.height = '100px';
+                            el.style['pointerEvents'] = 'auto';
+                            el.style.cursor = 'pointer';
+                            el.onclick = () => console.log(el);
+                            return el;
+                        }}
+                    />
+                </div>
+            )
 
         case EventCategory.Landslides:
+            eventIcon =
+                `<img src=\"${globalConstants.LANDSLIDE_ICON_PATH}\" height=\"75px\" alt=\"Event Icon\"/>`;
+
+            return(
+                <div className='globe-container'>
+                    <Globe
+                        globeImageUrl='//unpkg.com/three-globe/example/img/earth-blue-marble.jpg'
+                        backgroundImageUrl='//unpkg.com/three-globe/example/img/night-sky.png'
+                        width={props.width}
+                        height={props.height}
+                        showAtmosphere={true}
+                        showGraticules={true}
+                        htmlElementsData={EventData}
+                        htmlElement={() => {
+                            const el = document.createElement('div');
+                            el.innerHTML = eventIcon;
+                            el.style.width = '100px';
+                            el.style.height = '100px';
+                            el.style['pointerEvents'] = 'auto';
+                            el.style.cursor = 'pointer';
+                            el.onclick = () => console.log(el);
+                            return el;
+                        }}
+                    />
+                </div>
+            )
 
         case EventCategory.ExtremeTemperatures:
+            return(
+                <div className={"globe-container"}>
+                    <Globe
+                        globeImageUrl={'//unpkg.com/three-globe/example/img/earth-blue-marble.jpg'}
+                        backgroundImageUrl={'//unpkg.com/three-globe/example/img/night-sky.png'}
+                        width={props.width}
+                        height={props.height}
+                        showAtmosphere={true}
+                        showGraticules={true}
+                        heatmapsData={EventData}
+                        // TODO: finish heatmap
+                    />
+                </div>
+            )
 
         case EventCategory.None:
             return(
