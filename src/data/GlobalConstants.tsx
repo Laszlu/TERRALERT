@@ -1,5 +1,8 @@
 export const APP_NAME = "TERRALERT";
 
+export const EONET_URL = "https://eonet.gsfc.nasa.gov/api/v3/events";
+export const LOCATION_MUNICH = {lat: 48, lng: 11, altitude: 2.5};
+
 export const STORM_ICON_PATH = "src/assets/images/Storm.png";
 export const EMPTY_ICON_PATH = "src/assets/images/Empty.png";
 export const VOLCANO_ICON_PATH = "src/assets/images/volcano.png";

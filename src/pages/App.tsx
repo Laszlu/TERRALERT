@@ -22,8 +22,8 @@ function SwitchCategory(type: EventCategory, data: EventList) {
             dataSubset = data.events.filter(e => e.categories[0].id === EventCategory.Storms);
             return dataSubset;
         case EventCategory.Earthquakes:
-            dataSubset = data.events.filter(e => e.categories[0].id === EventCategory.Storms);
-            //dataSubset = data.events.filter(e => e.categories[0].id === EventCategory.Earthquakes);
+            //dataSubset = data.events.filter(e => e.categories[0].id === EventCategory.Storms);
+            dataSubset = data.events.filter(e => e.categories[0].id === EventCategory.Earthquakes);
             return dataSubset;
         case EventCategory.Volcanoes:
             dataSubset = data.events.filter(e => e.categories[0].id === EventCategory.Volcanoes);
@@ -39,6 +39,7 @@ function SwitchCategory(type: EventCategory, data: EventList) {
             return dataSubset;
         case EventCategory.ExtremeTemperatures:
             dataSubset = data.events.filter(e => e.categories[0].id === EventCategory.ExtremeTemperatures);
+            //dataSubset = data.events.filter(e => e.categories[0].id === EventCategory.Storms);
             return dataSubset;
         case EventCategory.None:
             dataSubset = new Array<NaturalEvent>();
@@ -52,9 +53,7 @@ function App() {
   const { width, height } = useWindowDimensions();
 
   const {isLoading, data, error} =
-      useFetchHook<EventList>(
-      "https://eonet.gsfc.nasa.gov/api/v3/events"
-  );
+      useFetchHook<EventList>(globalConstants.EONET_URL);
 
   if (isLoading) {
       return (

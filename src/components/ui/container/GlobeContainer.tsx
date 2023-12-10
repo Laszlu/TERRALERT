@@ -23,7 +23,6 @@ function globeContainer(props: GlobeContainerProps){
         EventData.push({lat: event.geometry[0].coordinates[1], lng: event.geometry[0].coordinates[0]});
     })
 
-    // TODO: Finish Switch for all other categories
     switch (props.category) {
 
         case EventCategory.Storms:
@@ -208,8 +207,13 @@ function globeContainer(props: GlobeContainerProps){
                         height={props.height}
                         showAtmosphere={true}
                         showGraticules={true}
-                        heatmapsData={EventData}
-                        // TODO: finish heatmap
+                        heatmapsData={[EventData]}
+                        heatmapPointLat={"lat"}
+                        heatmapPointLng={"lng"}
+                        heatmapPointWeight={0.5}
+                        heatmapTopAltitude={0}
+                        heatmapsTransitionDuration={0}
+                        enablePointerInteraction={false}
                     />
                 </div>
             )
