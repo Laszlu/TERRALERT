@@ -1,18 +1,30 @@
 import { NaturalEvent } from "../../../data/Model";
 import { ViewerHeader } from '../headers/HeaderIndex.tsx';
 import "../../../assets/styles/container.css";
+import "../../../assets/styles/index.css";
+import React from "react";
 
 type EventViewerProps = {
     event: NaturalEvent;
+    showEventViewer: boolean;
+    setShowEventViewer: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 function EventViewer(props: EventViewerProps){
+
+    const handleClick = () => {
+        props.setShowEventViewer(false);
+        console.log("showEventViewer set to false");
+    }
 
     let selectedEvent = props.event;
 
     return(
         <div className={"viewer-container"} >
             <div className={"viewer-background"}>
+                <button className={"close-button"} onClick={() => handleClick()}>
+                    &#10005;
+                </button>
                 <ViewerHeader headerText={selectedEvent.title} />
                 <div className={"viewer-label-container"}>
                     <table>

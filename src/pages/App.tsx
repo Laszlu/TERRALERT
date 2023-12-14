@@ -6,13 +6,16 @@ import {
 } from '../components/ui/container/ContainerIndex.tsx';
 import * as globalConstants from '../data/GlobalConstants.tsx';
 import useWindowDimensions from '../hooks/WindowDimensionsHook.tsx';
-import {EventCategory, EventList, NaturalEvent} from '../data/Model.tsx';
+import {Categorie, EventCategory, EventList, Geometry, NaturalEvent, Source} from '../data/Model.tsx';
 import useFetchHook from 'react-fetch-hook';
 import {useState} from "react";
+import EventViewer from "../components/ui/container/EventViewer.tsx";
 
-function TestClick() {
-  console.log("test");
-}
+let emptyEvent =
+    new NaturalEvent("none", "none", "none", "none",
+        [new Categorie("none", "none")], [new Source("none", "none")],
+        [new Geometry(0, "none", "none", "none", [0, 0])],
+        "none")
 
 function SwitchCategory(type: EventCategory, data: EventList) {
     let dataSubset;
@@ -49,6 +52,8 @@ function SwitchCategory(type: EventCategory, data: EventList) {
 
 function App() {
     const [category, setCategory] = useState(EventCategory.Storms);
+    const [eventForViewer, setEventForViewer] = useState(emptyEvent);
+    const [showEventViewer, setShowEventViewer] = useState(false);
 
   const { width, height } = useWindowDimensions();
 
@@ -66,7 +71,10 @@ function App() {
                               isLoading={isLoading}
                               data={[]}
                               category={EventCategory.None}
-                              click={() => TestClick()}/>
+                              eventForViewer={eventForViewer}
+                              setEventForViewer={setEventForViewer}
+                              showEventViewer={showEventViewer}
+                              setShowEventViewer={setShowEventViewer}/>
           </>
       )
   }
@@ -88,8 +96,19 @@ function App() {
                               data={Events}
                               isLoading={isLoading}
                               category={category}
-                              click={() => TestClick()}/>
-              {/*<EventViewer event={Events[0] as NaturalEvent} /> TODO: Open Eventviewer onclick */}
+                              eventForViewer={eventForViewer}
+                              setEventForViewer={setEventForViewer}
+                              showEventViewer={showEventViewer}
+                              setShowEventViewer={setShowEventViewer}/>
+              <div>
+              {showEventViewer ? (
+                  <EventViewer event={eventForViewer}
+                               showEventViewer={showEventViewer}
+                               setShowEventViewer={setShowEventViewer}/>
+                  ) : (
+                  <></>
+              )}
+              </div>
           </>
       )
   }

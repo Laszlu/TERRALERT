@@ -1,27 +1,41 @@
 import Globe from 'react-globe.gl';
 import {EventCategory, NaturalEvent} from "../../../data/Model.tsx";
 import * as globalConstants from '../../../data/GlobalConstants.tsx';
-
-// TODO: pass State down and build switch to return different globe for each one
+import React from "react";
 
 type GlobeContainerProps = {
     width: number;
     height: number;
     isLoading: boolean;
     data: NaturalEvent[];
-    click: (params: void) => void;
     category: EventCategory;
+    showEventViewer: boolean;
+    setShowEventViewer: React.Dispatch<React.SetStateAction<boolean>>;
+    eventForViewer: NaturalEvent;
+    setEventForViewer: React.Dispatch<React.SetStateAction<NaturalEvent>>;
   }
 
 function globeContainer(props: GlobeContainerProps){
 
     let eventIcon: string;
-    let EventData: { lat: number, lng: number }[] = Array();
+    // let EventData: {id: string, lat: number, lng: number }[] = Array();
+    //
+    // // NASA Coords are swapped!
+    // props.data.forEach((event) => {
+    //     EventData.push({id: event.id,lat: event.geometry[0].coordinates[1],
+    //         lng: event.geometry[0].coordinates[0]});
+    // })
 
-    // NASA Coords are swapped!!!!!
-    props.data.forEach((event) => {
-        EventData.push({lat: event.geometry[0].coordinates[1], lng: event.geometry[0].coordinates[0]});
-    })
+    const EventData = [...Array(props.data.length).keys()].map(() => ({
+
+    }));
+
+    const handleChange = () => {
+        // TODO: How to get to the event that is clicked on?
+        //props.setEventForViewer(props.data.find(e => e.geometry[0].coordinates[0] === ))
+        props.setShowEventViewer(true);
+        console.log("bool set to true from GlobeContainer");
+    };
 
     switch (props.category) {
 
@@ -39,14 +53,16 @@ function globeContainer(props: GlobeContainerProps){
                         showAtmosphere={true}
                         showGraticules={true}
                         htmlElementsData={EventData}
-                        htmlElement={() => {
+                        /*htmlLat={props.data.entries().}*/ // TODO: get to coords
+                        htmlElement={e => {
                             const el = document.createElement('div');
+                            el.id = e.id;
                             el.innerHTML = eventIcon;
                             el.style.width = '100px';
                             el.style.height = '100px';
                             el.style['pointerEvents'] = 'auto';
                             el.style.cursor = 'pointer';
-                            el.onclick = () => console.log(el);
+                            el.onclick = () => {console.log(el); handleChange()};
                             return el;
                         }}
                     />
@@ -74,7 +90,7 @@ function globeContainer(props: GlobeContainerProps){
                             el.style.height = '100px';
                             el.style['pointerEvents'] = 'auto';
                             el.style.cursor = 'pointer';
-                            el.onclick = () => console.log(el);
+                            el.onclick = () => {console.log(el); handleChange()};
                             return el;
                         }}
                         ringsData={EventData}
@@ -106,7 +122,7 @@ function globeContainer(props: GlobeContainerProps){
                             el.style.height = '100px';
                             el.style['pointerEvents'] = 'auto';
                             el.style.cursor = 'pointer';
-                            el.onclick = () => console.log(el);
+                            el.onclick = () => handleChange();
                             return el;
                         }}
                     />
@@ -134,7 +150,7 @@ function globeContainer(props: GlobeContainerProps){
                             el.style.height = '100px';
                             el.style['pointerEvents'] = 'auto';
                             el.style.cursor = 'pointer';
-                            el.onclick = () => console.log(el);
+                            el.onclick = () => handleChange();
                             return el;
                         }}
                     />
@@ -162,7 +178,7 @@ function globeContainer(props: GlobeContainerProps){
                             el.style.height = '100px';
                             el.style['pointerEvents'] = 'auto';
                             el.style.cursor = 'pointer';
-                            el.onclick = () => console.log(el);
+                            el.onclick = () => handleChange();
                             return el;
                         }}
                     />
@@ -190,7 +206,7 @@ function globeContainer(props: GlobeContainerProps){
                             el.style.height = '100px';
                             el.style['pointerEvents'] = 'auto';
                             el.style.cursor = 'pointer';
-                            el.onclick = () => console.log(el);
+                            el.onclick = () => handleChange();
                             return el;
                         }}
                     />

@@ -25,3 +25,15 @@ body {
   min-width: 320px;
   height: 100vh;
 }
+
+.close-button {
+  color: white;
+  background: transparent;
+  border: none;
+  padding: 0px;
+  height: 40px;
+  width: 40px;
+  font-size: 40px;
+  float: right;
+  cursor: pointer;
+}
