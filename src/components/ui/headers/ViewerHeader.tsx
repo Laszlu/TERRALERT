@@ -7,9 +7,9 @@ type ViewerHeaderProps = {
 function ViewerHeader(props: ViewerHeaderProps){
     return(
         <div className="viewer-header">
-            <h2 className="viewer-h2">
-                {props.headerText}
-            </h2>
+            <div className="viewer-header-text">
+                {props.headerText.substring(0, 25)}
+            </div>
         </div>
     )
 }

@@ -27,12 +27,21 @@ function globeContainer(props: GlobeContainerProps){
     // })
 
     const EventData = [...Array(props.data.length).keys()].map(() => ({
-
+        lat: 0,
+        lng: 0,
+        id: ""
     }));
 
-    const handleChange = () => {
-        // TODO: How to get to the event that is clicked on?
-        //props.setEventForViewer(props.data.find(e => e.geometry[0].coordinates[0] === ))
+    // TODO: currently using the oldest coords, need to switch to the newest
+    for (let i = 0; i < props.data.length; i++){
+        let lastIndex = props.data[i].geometry.length - 1;
+        EventData[i].lat = props.data[i].geometry[lastIndex].coordinates[1];
+        EventData[i].lng = props.data[i].geometry[lastIndex].coordinates[0];
+        EventData[i].id = props.data[i].id;
+    }
+
+    const handleChange = (id: string) => {
+        props.setEventForViewer(props.data.find(e => e.id === id) as NaturalEvent)
         props.setShowEventViewer(true);
         console.log("bool set to true from GlobeContainer");
     };
@@ -41,7 +50,7 @@ function globeContainer(props: GlobeContainerProps){
 
         case EventCategory.Storms:
             eventIcon =
-                `<img src=\"${globalConstants.STORM_ICON_PATH}\" height=\"100px\" alt=\"Event Icon\"/>`;
+                `<img src=\"${globalConstants.STORM_ICON_PATH}\" height=\"${globalConstants.STORM_ICON_SIZE}\" alt=\"Event Icon\"/>`;
 
             return(
                 <div className='globe-container'>
@@ -56,13 +65,13 @@ function globeContainer(props: GlobeContainerProps){
                         /*htmlLat={props.data.entries().}*/ // TODO: get to coords
                         htmlElement={e => {
                             const el = document.createElement('div');
-                            el.id = e.id;
+                            el.id = e.id; // error in Code but works in App
                             el.innerHTML = eventIcon;
                             el.style.width = '100px';
                             el.style.height = '100px';
                             el.style['pointerEvents'] = 'auto';
                             el.style.cursor = 'pointer';
-                            el.onclick = () => {console.log(el); handleChange()};
+                            el.onclick = () => {console.log(el); handleChange(el.id)};
                             return el;
                         }}
                     />
@@ -71,7 +80,7 @@ function globeContainer(props: GlobeContainerProps){
 
         case EventCategory.Earthquakes:
             eventIcon =
-                `<img src=\"${globalConstants.EMPTY_ICON_PATH}\" height=\"100px\" alt=\"Event Icon\"/>`;
+                `<img src=\"${globalConstants.EMPTY_ICON_PATH}\" height=\"${globalConstants.ICON_SIZE}\" alt=\"Event Icon\"/>`;
 
             return(
                 <div className='globe-container'>
@@ -83,14 +92,15 @@ function globeContainer(props: GlobeContainerProps){
                         showAtmosphere={true}
                         showGraticules={true}
                         htmlElementsData={EventData}
-                        htmlElement={() => {
+                        htmlElement={e => {
                             const el = document.createElement('div');
+                            el.id = e.id;
                             el.innerHTML = eventIcon;
                             el.style.width = '100px';
                             el.style.height = '100px';
                             el.style['pointerEvents'] = 'auto';
                             el.style.cursor = 'pointer';
-                            el.onclick = () => {console.log(el); handleChange()};
+                            el.onclick = () => {console.log(el); handleChange(el.id)};
                             return el;
                         }}
                         ringsData={EventData}
@@ -103,7 +113,7 @@ function globeContainer(props: GlobeContainerProps){
 
         case EventCategory.Volcanoes:
             eventIcon =
-                `<img src=\"${globalConstants.VOLCANO_ICON_PATH}\" height=\"75px\" alt=\"Event Icon\"/>`;
+                `<img src=\"${globalConstants.VOLCANO_ICON_PATH}\" height=\"${globalConstants.ICON_SIZE}\" alt=\"Event Icon\"/>`;
 
             return(
                 <div className='globe-container'>
@@ -115,14 +125,15 @@ function globeContainer(props: GlobeContainerProps){
                         showAtmosphere={true}
                         showGraticules={true}
                         htmlElementsData={EventData}
-                        htmlElement={() => {
+                        htmlElement={e => {
                             const el = document.createElement('div');
+                            el.id = e.id;
                             el.innerHTML = eventIcon;
                             el.style.width = '100px';
                             el.style.height = '100px';
                             el.style['pointerEvents'] = 'auto';
                             el.style.cursor = 'pointer';
-                            el.onclick = () => handleChange();
+                            el.onclick = () => {console.log(el); handleChange(el.id)};
                             return el;
                         }}
                     />
@@ -131,7 +142,7 @@ function globeContainer(props: GlobeContainerProps){
 
         case EventCategory.Wildfires:
             eventIcon =
-                `<img src=\"${globalConstants.WILDFIRE_ICON_PATH}\" height=\"75px\" alt=\"Event Icon\"/>`;
+                `<img src=\"${globalConstants.WILDFIRE_ICON_PATH}\" height=\"${globalConstants.ICON_SIZE}\" alt=\"Event Icon\"/>`;
 
             return(
                 <div className='globe-container'>
@@ -143,14 +154,15 @@ function globeContainer(props: GlobeContainerProps){
                         showAtmosphere={true}
                         showGraticules={true}
                         htmlElementsData={EventData}
-                        htmlElement={() => {
+                        htmlElement={e => {
                             const el = document.createElement('div');
+                            el.id = e.id;
                             el.innerHTML = eventIcon;
                             el.style.width = '100px';
                             el.style.height = '100px';
                             el.style['pointerEvents'] = 'auto';
                             el.style.cursor = 'pointer';
-                            el.onclick = () => handleChange();
+                            el.onclick = () => {console.log(el); handleChange(el.id)};
                             return el;
                         }}
                     />
@@ -159,7 +171,7 @@ function globeContainer(props: GlobeContainerProps){
 
         case EventCategory.Floods:
             eventIcon =
-                `<img src=\"${globalConstants.FLOOD_ICON_PATH}\" height=\"75px\" alt=\"Event Icon\"/>`;
+                `<img src=\"${globalConstants.FLOOD_ICON_PATH}\" height=\"${globalConstants.ICON_SIZE}\" alt=\"Event Icon\"/>`;
 
             return(
                 <div className='globe-container'>
@@ -171,14 +183,15 @@ function globeContainer(props: GlobeContainerProps){
                         showAtmosphere={true}
                         showGraticules={true}
                         htmlElementsData={EventData}
-                        htmlElement={() => {
+                        htmlElement={e => {
                             const el = document.createElement('div');
+                            el.id = e.id;
                             el.innerHTML = eventIcon;
                             el.style.width = '100px';
                             el.style.height = '100px';
                             el.style['pointerEvents'] = 'auto';
                             el.style.cursor = 'pointer';
-                            el.onclick = () => handleChange();
+                            el.onclick = () => {console.log(el); handleChange(el.id)};
                             return el;
                         }}
                     />
@@ -187,7 +200,7 @@ function globeContainer(props: GlobeContainerProps){
 
         case EventCategory.Landslides:
             eventIcon =
-                `<img src=\"${globalConstants.LANDSLIDE_ICON_PATH}\" height=\"75px\" alt=\"Event Icon\"/>`;
+                `<img src=\"${globalConstants.LANDSLIDE_ICON_PATH}\" height=\"${globalConstants.ICON_SIZE}\" alt=\"Event Icon\"/>`;
 
             return(
                 <div className='globe-container'>
@@ -199,14 +212,15 @@ function globeContainer(props: GlobeContainerProps){
                         showAtmosphere={true}
                         showGraticules={true}
                         htmlElementsData={EventData}
-                        htmlElement={() => {
+                        htmlElement={e => {
                             const el = document.createElement('div');
+                            el.id = e.id;
                             el.innerHTML = eventIcon;
                             el.style.width = '100px';
                             el.style.height = '100px';
                             el.style['pointerEvents'] = 'auto';
                             el.style.cursor = 'pointer';
-                            el.onclick = () => handleChange();
+                            el.onclick = () => {console.log(el); handleChange(el.id)};
                             return el;
                         }}
                     />

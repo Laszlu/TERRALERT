@@ -14,3 +14,24 @@
 .layer-toggle-div{
     display: flex;
 }*/
+
+.source-btn{
+    height: 4vh;
+    width: 8vw;
+    font-size: 2em;
+    border-radius: 10px;
+    color: white;
+    background-color: darkgray;
+    box-shadow: none;
+    border: solid 1px darkgrey;
+    cursor: pointer;
+}
+
+.source-btn:hover {
+    background-color: rgba(120, 120, 120, 1);
+}
+
+.source-btn a{
+    text-decoration: none;
+    color: white;
+}

@@ -36,6 +36,8 @@
 
 .viewer-label-container{
     padding-left: 2vw;
+    overflow: scroll;
+    height: 69%;
 }
 
 .globe-container{
@@ -79,6 +81,19 @@
     margin-bottom: 3vh;
     text-align: center;
     background: none;
+    height: 15%;
+}
+
+.geo-table{
+    width: 80%;
+}
+
+.info-table{
+    font-size: 1.3em;
+}
+
+.info-table-right-column-td{
+    padding-left: 0.5vw;
 }
 
 .data-table-row-outer{
@@ -102,4 +117,10 @@
 .data-table-inner-td-left{
     width: 7vw;
     font-weight: bold;
+}
+
+.source-btn-container{
+    height: 10%;
+    text-align: center;
+    padding-top: 1.5vh;
 }
