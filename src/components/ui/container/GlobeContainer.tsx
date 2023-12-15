@@ -32,7 +32,6 @@ function globeContainer(props: GlobeContainerProps){
         id: ""
     }));
 
-    // TODO: currently using the oldest coords, need to switch to the newest
     for (let i = 0; i < props.data.length; i++){
         let lastIndex = props.data[i].geometry.length - 1;
         EventData[i].lat = props.data[i].geometry[lastIndex].coordinates[1];
@@ -62,7 +61,6 @@ function globeContainer(props: GlobeContainerProps){
                         showAtmosphere={true}
                         showGraticules={true}
                         htmlElementsData={EventData}
-                        /*htmlLat={props.data.entries().}*/ // TODO: get to coords
                         htmlElement={e => {
                             const el = document.createElement('div');
                             el.id = e.id; // error in Code but works in App
