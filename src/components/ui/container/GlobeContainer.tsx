@@ -63,7 +63,7 @@ function globeContainer(props: GlobeContainerProps){
                         htmlElementsData={EventData}
                         htmlElement={e => {
                             const el = document.createElement('div');
-                            el.id = e.id; // error in Code but works in App
+                            el.id = e.id;
                             el.innerHTML = eventIcon;
                             el.style.width = '100px';
                             el.style.height = '100px';
