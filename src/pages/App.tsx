@@ -17,36 +17,38 @@ let emptyEvent =
         [new Geometry(0, "none", "none", "none", [0, 0])],
         "none")
 
-function SwitchCategory(type: EventCategory, data: EventList) {
+function SwitchCategory(type: EventCategory, data: EventList | undefined) {
     let dataSubset;
 
-    switch (type) {
-        case EventCategory.Storms:
-            dataSubset = data.events.filter(e => e.categories[0].id === EventCategory.Storms);
-            return dataSubset;
-        case EventCategory.Earthquakes:
-            //dataSubset = data.events.filter(e => e.categories[0].id === EventCategory.Storms);
-            dataSubset = data.events.filter(e => e.categories[0].id === EventCategory.Earthquakes);
-            return dataSubset;
-        case EventCategory.Volcanoes:
-            dataSubset = data.events.filter(e => e.categories[0].id === EventCategory.Volcanoes);
-            return dataSubset;
-        case EventCategory.Wildfires:
-            dataSubset = data.events.filter(e => e.categories[0].id === EventCategory.Wildfires);
-            return dataSubset;
-        case EventCategory.Floods:
-            dataSubset = data.events.filter(e => e.categories[0].id === EventCategory.Floods);
-            return dataSubset;
-        case EventCategory.Landslides:
-            dataSubset = data.events.filter(e => e.categories[0].id === EventCategory.Landslides);
-            return dataSubset;
-        case EventCategory.ExtremeTemperatures:
-            dataSubset = data.events.filter(e => e.categories[0].id === EventCategory.ExtremeTemperatures);
-            //dataSubset = data.events.filter(e => e.categories[0].id === EventCategory.Storms);
-            return dataSubset;
-        case EventCategory.None:
-            dataSubset = new Array<NaturalEvent>();
-            return dataSubset;
+    if(typeof data !== undefined){
+        switch (type) {
+            case EventCategory.Storms:
+                dataSubset = data.events.filter(e => e.categories[0].id === EventCategory.Storms);
+                return dataSubset;
+            case EventCategory.Earthquakes:
+                //dataSubset = data.events.filter(e => e.categories[0].id === EventCategory.Storms);
+                dataSubset = data.events.filter(e => e.categories[0].id === EventCategory.Earthquakes);
+                return dataSubset;
+            case EventCategory.Volcanoes:
+                dataSubset = data.events.filter(e => e.categories[0].id === EventCategory.Volcanoes);
+                return dataSubset;
+            case EventCategory.Wildfires:
+                dataSubset = data.events.filter(e => e.categories[0].id === EventCategory.Wildfires);
+                return dataSubset;
+            case EventCategory.Floods:
+                dataSubset = data.events.filter(e => e.categories[0].id === EventCategory.Floods);
+                return dataSubset;
+            case EventCategory.Landslides:
+                dataSubset = data.events.filter(e => e.categories[0].id === EventCategory.Landslides);
+                return dataSubset;
+            case EventCategory.ExtremeTemperatures:
+                dataSubset = data.events.filter(e => e.categories[0].id === EventCategory.ExtremeTemperatures);
+                //dataSubset = data.events.filter(e => e.categories[0].id === EventCategory.Storms);
+                return dataSubset;
+            case EventCategory.None:
+                dataSubset = new Array<NaturalEvent>();
+                return dataSubset;
+        }
     }
 }
 

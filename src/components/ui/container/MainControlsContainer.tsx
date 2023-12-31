@@ -1,5 +1,6 @@
 import {ToggleGroup} from "../buttons/ButtonsIndex";
 import {ControlsHeader} from "../headers/HeaderIndex";
+import {InfoContainer} from "../container/ContainerIndex.tsx";
 import {EventCategory} from "../../../data/Model";
 import "../../../assets/styles/container.css";
 import React from "react";
@@ -9,7 +10,7 @@ interface IMainControlsContainerProps {
 	setCategory: React.Dispatch<React.SetStateAction<EventCategory>>;
 }
 
-function mainControlsContainer(props: IMainControlsContainerProps) {
+function MainControlsContainer(props: IMainControlsContainerProps) {
 
 	return (
 		<div className={"main-controls-container"}>
@@ -24,9 +25,10 @@ function mainControlsContainer(props: IMainControlsContainerProps) {
 					/>
 				</div>
 			</div>
+			<InfoContainer/>
 		</div>
 	);
 }
 
-export default mainControlsContainer;
+export default MainControlsContainer;
 

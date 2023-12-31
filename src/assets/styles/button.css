@@ -10,10 +10,10 @@
     align-items: center;
 }
 
-/*
-.layer-toggle-div{
-    display: flex;
-}*/
+.cat-switch{
+    margin-right: 5px;
+    margin-bottom: 3px;
+}
 
 .source-btn{
     height: 4vh;

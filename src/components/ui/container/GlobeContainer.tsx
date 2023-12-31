@@ -15,7 +15,7 @@ type GlobeContainerProps = {
     setEventForViewer: React.Dispatch<React.SetStateAction<NaturalEvent>>;
   }
 
-function globeContainer(props: GlobeContainerProps){
+function GlobeContainer(props: GlobeContainerProps){
 
     let eventIcon: string;
     // let EventData: {id: string, lat: number, lng: number }[] = Array();
@@ -264,4 +264,4 @@ function globeContainer(props: GlobeContainerProps){
 
 }
 
-export default globeContainer;
+export default GlobeContainer;

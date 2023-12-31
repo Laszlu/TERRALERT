@@ -8,7 +8,7 @@ function ViewerHeader(props: ViewerHeaderProps){
     return(
         <div className="viewer-header">
             <div className="viewer-header-text">
-                {props.headerText.substring(0, 25)}
+                {props.headerText.substring(0, 90)}
             </div>
         </div>
     )

@@ -6,14 +6,50 @@
     z-index: 1100;
   }
 
+
+
 .controls-background{
     position: fixed;
     width: 21vw;
-    height: 70vh;
+    height: 40vh;
     background: rgb(211 211 211 / 0.4);
     border-radius: 10px;
     left: 2%;
     top: 15%;
+}
+
+.info-background{
+    position: fixed;
+    width: 21vw;
+    height: 5vh;
+    background: rgb(211 211 211 / 0.4);
+    border-radius: 10px;
+    left: 2%;
+    top: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.info-element{
+    cursor: pointer;
+    width: 45%;
+    background: transparent;
+    height: 70%;
+    border-radius: 10px;
+    text-align: center;
+    margin: 0 0.5vw;
+    font-size: 3vh;
+    line-height: 100%;
+}
+
+.info-element:hover{
+    font-weight: bold;
+}
+
+.info-separator{
+    height: 60%;
+    border-left: solid rgb(211 211 211 / 0.6) 2px;
 }
 
 .viewer-container{
@@ -37,7 +73,11 @@
 .viewer-label-container{
     padding-left: 2vw;
     overflow: scroll;
-    height: 69%;
+    height: auto;
+}
+
+.viewer-text-container{
+    height: 90%;
 }
 
 .globe-container{
@@ -48,12 +88,10 @@
 }
 
 .button-container{
-    /*position: fixed;*/
-    /*display: grid;*/
-    width: inherit;
+    width: 80%;
     background: transparent;
-    /*padding: 20px 0 20px 5px;*/
     margin-top: 2vh;
+    text-align: center;
 }
 
 .main-header{
@@ -77,11 +115,11 @@
 }
 
 .viewer-header{
-    padding-top: 1vh;
+    padding: 1vh 1vw 0 1vw;
     margin-bottom: 3vh;
     text-align: center;
     background: none;
-    height: 15%;
+    height: fit-content;
 }
 
 .geo-table{
