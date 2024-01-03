@@ -40,39 +40,41 @@ function EventViewer(props: EventViewerProps) {
                             </tr>
                             </tbody>
                         </table>
-                        {selectedEvent.geometry.slice(0).reverse().map((geo) => (
-                            <table className={"geo-table"}>
-                                <tbody>
-                                <tr className={"data-table-row-outer"}>
-                                    <td colSpan={2} className={"data-table-outer-date"}>
-                                        Data on {geo.date.substring(0, 12)}:
-                                    </td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>
-                                        <table>
-                                            <tbody>
-                                            <tr className={"data-table-row-inner"}>
-                                                <td className={"data-table-inner-td-left"}>Latitude:</td>
-                                                <td>{geo.coordinates[0]}</td>
-                                            </tr>
-                                            <tr className={"data-table-row-inner"}>
-                                                <td className={"data-table-inner-td-left"}>Longitude:</td>
-                                                <td>{geo.coordinates[1]}</td>
-                                            </tr>
-                                            <tr className={"data-table-row-inner"}>
-                                                <td className={"data-table-inner-td-left"}>Magnitude:</td>
-                                                <td>{geo.magnitudeValue}</td>
-                                            </tr>
-                                            </tbody>
-                                        </table>
-                                    </td>
-                                </tr>
-                                </tbody>
-                            </table>
-                        ))}
+                        <div className={"geo-table-container"}>
+                            {selectedEvent.geometry.slice(0).reverse().map((geo) => (
+                                <table className={"geo-table"}>
+                                    <tbody>
+                                    <tr className={"data-table-row-outer"}>
+                                        <td colSpan={2} className={"data-table-outer-date"}>
+                                            Data on {geo.date.substring(0, 12)}:
+                                        </td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td>
+                                            <table>
+                                                <tbody>
+                                                <tr className={"data-table-row-inner"}>
+                                                    <td className={"data-table-inner-td-left"}>Latitude:</td>
+                                                    <td>{geo.coordinates[0]}</td>
+                                                </tr>
+                                                <tr className={"data-table-row-inner"}>
+                                                    <td className={"data-table-inner-td-left"}>Longitude:</td>
+                                                    <td>{geo.coordinates[1]}</td>
+                                                </tr>
+                                                <tr className={"data-table-row-inner"}>
+                                                    <td className={"data-table-inner-td-left"}>Magnitude:</td>
+                                                    <td>{geo.magnitudeValue}</td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            ))}
+                        </div>
                     </div>
                 </div>
                 <div className={"source-btn-container"}>

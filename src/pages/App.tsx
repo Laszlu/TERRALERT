@@ -67,7 +67,9 @@ function App() {
           <>
               <MainHeaderContainer headerText={globalConstants.APP_NAME}/>
               <MainControlsContainer category={category}
-                                     setCategory={setCategory}/>
+                                     setCategory={setCategory}
+                                     showEventViewer={showEventViewer}
+                                     setShowEventViewer={setShowEventViewer}/>
               <GlobeContainer width={width}
                               height={height}
                               isLoading={isLoading}
@@ -92,7 +94,10 @@ function App() {
       return (
           <>
               <MainHeaderContainer headerText={globalConstants.APP_NAME}/>
-              <MainControlsContainer category={category} setCategory={setCategory}/>
+              <MainControlsContainer category={category}
+                                     setCategory={setCategory}
+                                     showEventViewer={showEventViewer}
+                                     setShowEventViewer={setShowEventViewer}/>
               <GlobeContainer width={width}
                               height={height}
                               data={Events}

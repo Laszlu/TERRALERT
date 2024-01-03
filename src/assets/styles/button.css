@@ -1,37 +1,32 @@
 .layer-toggle{
-    /*height: 5vh;*/
-    /*width: 15vw;*/
-    margin-left: 1vw !important;
-    margin-top: 3.5vh !important;
-    /*margin-bottom: 0vh !important;*/
-    text-align: left;
-    display: flex;
-    justify-content: left;
-    align-items: center;
+    margin-right: 10%;
 }
 
-.cat-switch{
-    margin-right: 5px;
-    margin-bottom: 3px;
+.cat-switch-with-label{
+    margin-bottom: 10%;
+    text-align: left;
 }
 
 .source-btn{
-    height: 4vh;
-    width: 8vw;
+    height: 100%;
+    width: 100%;
     font-size: 2em;
     border-radius: 10px;
     color: white;
-    background-color: darkgray;
+    background-color: rgb(211 211 211 / 0.4);
     box-shadow: none;
-    border: solid 1px darkgrey;
+    border: none;
     cursor: pointer;
+    align-content: center;
+    line-height: 100%;
 }
 
 .source-btn:hover {
-    background-color: rgba(120, 120, 120, 1);
+    font-weight: bold;
 }
 
 .source-btn a{
     text-decoration: none;
     color: white;
+    font-size: 3vh;
 }

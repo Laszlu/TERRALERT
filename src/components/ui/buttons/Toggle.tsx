@@ -4,22 +4,23 @@ import '../../../assets/styles/Image.css'
 import '../../../assets/styles/Text.css'
 import React from "react";
 import {EventCategory} from "../../../data/Model.tsx";
-import {FormControl, FormControlLabel, FormGroup, FormLabel} from "@mui/material";
+import {FormControl, FormControlLabel, FormGroup} from "@mui/material";
 
 type toggleButtonProps = {
-    imgPath: string,
-    imgAlt : string,
     setCategory: React.Dispatch<React.SetStateAction<EventCategory>>;
     category: EventCategory;
+    showEventViewer: boolean;
+    setShowEventViewer: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 const ToggleGroup: React.FC<toggleButtonProps> =
-    ({imgPath, imgAlt, setCategory, category}) => {
+    ({setCategory, category, setShowEventViewer}) => {
 
     const [state, setState] = React.useState(category);
 
     const handleChange = (cat: EventCategory) => {
         setState(cat);
+        setShowEventViewer(false);
         setCategory(cat);
         console.log(category);
     };
@@ -28,9 +29,9 @@ const ToggleGroup: React.FC<toggleButtonProps> =
 
         <FormControl component={"fieldset"} variant={"standard"}>
             <FormGroup>
-                <FormControlLabel
+                <FormControlLabel className={"cat-switch-with-label"}
                     control={
-                        <Switch className={"cat-switch"}
+                        <Switch className={"layer-toggle"}
                             checked={state === EventCategory.Storms}
                             onChange={() => {
                                 handleChange(EventCategory.Storms);
@@ -40,9 +41,9 @@ const ToggleGroup: React.FC<toggleButtonProps> =
                     }
                     label={"Storms"}
                 />
-                <FormControlLabel
+                <FormControlLabel className={"cat-switch-with-label"}
                     control={
-                        <Switch className={"cat-switch"}
+                        <Switch className={"layer-toggle"}
                             checked={state === EventCategory.Wildfires}
                             onChange={() => {
                                 handleChange(EventCategory.Wildfires);
@@ -52,9 +53,9 @@ const ToggleGroup: React.FC<toggleButtonProps> =
                     }
                     label={"Wildfires"}
                 />
-                <FormControlLabel
+                <FormControlLabel className={"cat-switch-with-label"}
                     control={
-                        <Switch className={"cat-switch"}
+                        <Switch className={"layer-toggle"}
                             checked={state === EventCategory.Volcanoes}
                             onChange={() => {
                                 handleChange(EventCategory.Volcanoes);
@@ -64,9 +65,9 @@ const ToggleGroup: React.FC<toggleButtonProps> =
                     }
                     label={"Volcanoes"}
                 />
-                <FormControlLabel
+                <FormControlLabel className={"cat-switch-with-label"}
                     control={
-                        <Switch className={"cat-switch"}
+                        <Switch className={"layer-toggle"}
                             checked={state === EventCategory.Earthquakes}
                             onChange={() => {
                                 handleChange(EventCategory.Earthquakes);
@@ -76,9 +77,9 @@ const ToggleGroup: React.FC<toggleButtonProps> =
                     }
                     label={"Earthquakes"}
                 />
-                <FormControlLabel
+                <FormControlLabel className={"cat-switch-with-label"}
                     control={
-                        <Switch className={"cat-switch"}
+                        <Switch className={"layer-toggle"}
                             checked={state === EventCategory.Floods}
                             onChange={() => {
                                 handleChange(EventCategory.Floods);
@@ -88,9 +89,9 @@ const ToggleGroup: React.FC<toggleButtonProps> =
                     }
                     label={"Floods"}
                 />
-                <FormControlLabel
+                <FormControlLabel className={"cat-switch-with-label"}
                     control={
-                        <Switch className={"cat-switch"}
+                        <Switch className={"layer-toggle"}
                             checked={state === EventCategory.Landslides}
                             onChange={() => {
                                 handleChange(EventCategory.Landslides);
@@ -100,9 +101,9 @@ const ToggleGroup: React.FC<toggleButtonProps> =
                     }
                     label={"Landslides"}
                 />
-                <FormControlLabel
+                <FormControlLabel className={"cat-switch-with-label"}
                     control={
-                        <Switch className={"cat-switch"}
+                        <Switch className={"layer-toggle"}
                             checked={state === EventCategory.ExtremeTemperatures}
                             onChange={() => {
                                 handleChange(EventCategory.ExtremeTemperatures);
