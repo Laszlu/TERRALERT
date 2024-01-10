@@ -2,7 +2,8 @@ import '../assets/styles/App.css';
 import {
     GlobeContainer,
     MainControlsContainer,
-    MainHeaderContainer
+    MainHeaderContainer,
+    AboutContainer, HelpContainer
 } from '../components/ui/container/ContainerIndex.tsx';
 import * as globalConstants from '../data/GlobalConstants.tsx';
 import useWindowDimensions from '../hooks/WindowDimensionsHook.tsx';
@@ -20,14 +21,16 @@ let emptyEvent =
 function SwitchCategory(type: EventCategory, data: EventList | undefined) {
     let dataSubset;
 
+    //TODO: change to display live data
     if(typeof data !== undefined){
         switch (type) {
             case EventCategory.Storms:
-                dataSubset = data.events.filter(e => e.categories[0].id === EventCategory.Storms);
+                dataSubset = data.events.filter(e => e.categories[0].id === EventCategory.Volcanoes);
+                //dataSubset = data.events.filter(e => e.categories[0].id === EventCategory.Storms);
                 return dataSubset;
             case EventCategory.Earthquakes:
-                //dataSubset = data.events.filter(e => e.categories[0].id === EventCategory.Storms);
-                dataSubset = data.events.filter(e => e.categories[0].id === EventCategory.Earthquakes);
+                dataSubset = data.events.filter(e => e.categories[0].id === EventCategory.Volcanoes);
+                //dataSubset = data.events.filter(e => e.categories[0].id === EventCategory.Earthquakes);
                 return dataSubset;
             case EventCategory.Volcanoes:
                 dataSubset = data.events.filter(e => e.categories[0].id === EventCategory.Volcanoes);
@@ -56,6 +59,8 @@ function App() {
     const [category, setCategory] = useState(EventCategory.Storms);
     const [eventForViewer, setEventForViewer] = useState(emptyEvent);
     const [showEventViewer, setShowEventViewer] = useState(false);
+    const [showAboutElement, setShowAboutElement] = useState(false);
+    const [showHelpElement, setShowHelpElement] = useState(false);
 
   const { width, height } = useWindowDimensions();
 
@@ -68,6 +73,10 @@ function App() {
               <MainHeaderContainer headerText={globalConstants.APP_NAME}/>
               <MainControlsContainer category={category}
                                      setCategory={setCategory}
+                                     showAboutElement={showAboutElement}
+                                     setShowAboutElement={setShowAboutElement}
+                                     showHelpElement={showHelpElement}
+                                     setShowHelpElement={setShowHelpElement}
                                      showEventViewer={showEventViewer}
                                      setShowEventViewer={setShowEventViewer}/>
               <GlobeContainer width={width}
@@ -96,6 +105,10 @@ function App() {
               <MainHeaderContainer headerText={globalConstants.APP_NAME}/>
               <MainControlsContainer category={category}
                                      setCategory={setCategory}
+                                     showAboutElement={showAboutElement}
+                                     setShowAboutElement={setShowAboutElement}
+                                     showHelpElement={showHelpElement}
+                                     setShowHelpElement={setShowHelpElement}
                                      showEventViewer={showEventViewer}
                                      setShowEventViewer={setShowEventViewer}/>
               <GlobeContainer width={width}
@@ -108,13 +121,29 @@ function App() {
                               showEventViewer={showEventViewer}
                               setShowEventViewer={setShowEventViewer}/>
               <div>
-              {showEventViewer ? (
-                  <EventViewer event={eventForViewer}
-                               showEventViewer={showEventViewer}
-                               setShowEventViewer={setShowEventViewer}/>
+                  {showEventViewer ? (
+                      <EventViewer event={eventForViewer}
+                                   showEventViewer={showEventViewer}
+                                   setShowEventViewer={setShowEventViewer}/>
                   ) : (
-                  <></>
-              )}
+                      <></>
+                  )}
+              </div>
+              <div>
+                  {showAboutElement ? (
+                      <AboutContainer showAboutElement={showAboutElement}
+                                      setShowAboutElement={setShowAboutElement}/>
+                  ) : (
+                      <></>
+                  )}
+              </div>
+              <div>
+                  {showHelpElement ? (
+                      <HelpContainer showHelpElement={showHelpElement}
+                                      setShowHelpElement={setShowHelpElement}/>
+                  ) : (
+                      <></>
+                  )}
               </div>
           </>
       )

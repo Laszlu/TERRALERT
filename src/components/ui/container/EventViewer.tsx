@@ -10,6 +10,10 @@ type EventViewerProps = {
     setShowEventViewer: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
+function OpenSourceLink(link: string){
+    window.open(link, "_blank", "noreferrer");
+}
+
 function EventViewer(props: EventViewerProps) {
 
     const handleClick = () => {
@@ -78,11 +82,9 @@ function EventViewer(props: EventViewerProps) {
                     </div>
                 </div>
                 <div className={"source-btn-container"}>
-                    <button className={"source-btn"}>
-                        <a href={selectedEvent.sources[0].url} target={"_blank"}>
-                            Source
-                        </a>
-                    </button>
+                    <div className={"source-btn-element"} onClick={() => OpenSourceLink(selectedEvent.sources[0].url)}>
+                        Source
+                    </div>
                 </div>
             </div>
         </div>

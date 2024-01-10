@@ -27,7 +27,7 @@ body {
 }
 
 .close-button {
-  color: white;
+  color: rgb(50 50 50);
   background: transparent;
   border: none;
   padding: 0;
@@ -36,4 +36,7 @@ body {
   font-size: 40px;
   float: right;
   cursor: pointer;
+  position: absolute;
+  top: 0;
+  right: 2%
 }

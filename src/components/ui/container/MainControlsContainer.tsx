@@ -10,6 +10,10 @@ interface IMainControlsContainerProps {
 	setCategory: React.Dispatch<React.SetStateAction<EventCategory>>;
 	showEventViewer: boolean;
 	setShowEventViewer: React.Dispatch<React.SetStateAction<boolean>>;
+	showAboutElement: boolean;
+	setShowAboutElement: React.Dispatch<React.SetStateAction<boolean>>;
+	showHelpElement: boolean;
+	setShowHelpElement: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 function MainControlsContainer(props: IMainControlsContainerProps) {
@@ -26,7 +30,11 @@ function MainControlsContainer(props: IMainControlsContainerProps) {
 						showEventViewer={props.showEventViewer}
 					/>
 				</div>
-				<InfoContainer/>
+				<InfoContainer
+					showAboutElement={props.showAboutElement}
+					setShowAboutElement={props.setShowAboutElement}
+					showHelpElement={props.showHelpElement}
+					setShowHelpElement={props.setShowHelpElement}/>
 			</div>
 		</div>
 	);
