@@ -2,7 +2,7 @@ import '../assets/styles/App.css';
 import {
     GlobeContainer,
     MainControlsContainer,
-    MainHeaderContainer,
+    MainHeaderContainer, ErrorContainer,
     AboutContainer, HelpContainer
 } from '../components/ui/container/ContainerIndex.tsx';
 import * as globalConstants from '../data/GlobalConstants.tsx';
@@ -39,14 +39,16 @@ function SwitchCategory(type: EventCategory, data: EventList | undefined) {
                 dataSubset = data.events.filter(e => e.categories[0].id === EventCategory.Wildfires);
                 return dataSubset;
             case EventCategory.Floods:
-                dataSubset = data.events.filter(e => e.categories[0].id === EventCategory.Floods);
+                dataSubset = data.events.filter(e => e.categories[0].id === EventCategory.Volcanoes);
+                //dataSubset = data.events.filter(e => e.categories[0].id === EventCategory.Floods);
                 return dataSubset;
             case EventCategory.Landslides:
-                dataSubset = data.events.filter(e => e.categories[0].id === EventCategory.Landslides);
+                dataSubset = data.events.filter(e => e.categories[0].id === EventCategory.Volcanoes);
+                //dataSubset = data.events.filter(e => e.categories[0].id === EventCategory.Landslides);
                 return dataSubset;
             case EventCategory.ExtremeTemperatures:
-                dataSubset = data.events.filter(e => e.categories[0].id === EventCategory.ExtremeTemperatures);
-                //dataSubset = data.events.filter(e => e.categories[0].id === EventCategory.Storms);
+                dataSubset = data.events.filter(e => e.categories[0].id === EventCategory.Volcanoes);
+                //dataSubset = data.events.filter(e => e.categories[0].id === EventCategory.ExtremeTemperatures);
                 return dataSubset;
             case EventCategory.None:
                 dataSubset = new Array<NaturalEvent>();
@@ -59,8 +61,8 @@ function App() {
     const [category, setCategory] = useState(EventCategory.Storms);
     const [eventForViewer, setEventForViewer] = useState(emptyEvent);
     const [showEventViewer, setShowEventViewer] = useState(false);
-    const [showAboutElement, setShowAboutElement] = useState(false);
-    const [showHelpElement, setShowHelpElement] = useState(false);
+    const [showAbout, setShowAbout] = useState(false);
+    const [showHelp, setShowHelp] = useState(false);
 
   const { width, height } = useWindowDimensions();
 
@@ -73,10 +75,10 @@ function App() {
               <MainHeaderContainer headerText={globalConstants.APP_NAME}/>
               <MainControlsContainer category={category}
                                      setCategory={setCategory}
-                                     showAboutElement={showAboutElement}
-                                     setShowAboutElement={setShowAboutElement}
-                                     showHelpElement={showHelpElement}
-                                     setShowHelpElement={setShowHelpElement}
+                                     showAboutElement={showAbout}
+                                     setShowAboutElement={setShowAbout}
+                                     showHelpElement={showHelp}
+                                     setShowHelpElement={setShowHelp}
                                      showEventViewer={showEventViewer}
                                      setShowEventViewer={setShowEventViewer}/>
               <GlobeContainer width={width}
@@ -92,63 +94,92 @@ function App() {
       )
   }
   else {
-      let Events = SwitchCategory(category, data);
-
-      if(Events[0] !== undefined)
-      {
-          console.log(Events[0].categories[0].id)
+      if(error) {
+          console.log(error);
+          return (
+              <>
+                  <MainHeaderContainer headerText={globalConstants.APP_NAME}/>
+                  <MainControlsContainer category={category}
+                                         setCategory={setCategory}
+                                         showAboutElement={showAbout}
+                                         setShowAboutElement={setShowAbout}
+                                         showHelpElement={showHelp}
+                                         setShowHelpElement={setShowHelp}
+                                         showEventViewer={showEventViewer}
+                                         setShowEventViewer={setShowEventViewer}/>
+                  <GlobeContainer width={width}
+                                  height={height}
+                                  isLoading={isLoading}
+                                  data={[]}
+                                  category={EventCategory.None}
+                                  eventForViewer={eventForViewer}
+                                  setEventForViewer={setEventForViewer}
+                                  showEventViewer={showEventViewer}
+                                  setShowEventViewer={setShowEventViewer}/>
+                  <div>
+                    <ErrorContainer/>
+                  </div>
+              </>
+          )
       }
-      console.log(Events);
+      else {
+          let Events = SwitchCategory(category, data);
 
-      return (
-          <>
-              <MainHeaderContainer headerText={globalConstants.APP_NAME}/>
-              <MainControlsContainer category={category}
-                                     setCategory={setCategory}
-                                     showAboutElement={showAboutElement}
-                                     setShowAboutElement={setShowAboutElement}
-                                     showHelpElement={showHelpElement}
-                                     setShowHelpElement={setShowHelpElement}
-                                     showEventViewer={showEventViewer}
-                                     setShowEventViewer={setShowEventViewer}/>
-              <GlobeContainer width={width}
-                              height={height}
-                              data={Events}
-                              isLoading={isLoading}
-                              category={category}
-                              eventForViewer={eventForViewer}
-                              setEventForViewer={setEventForViewer}
-                              showEventViewer={showEventViewer}
-                              setShowEventViewer={setShowEventViewer}/>
-              <div>
-                  {showEventViewer ? (
-                      <EventViewer event={eventForViewer}
-                                   showEventViewer={showEventViewer}
-                                   setShowEventViewer={setShowEventViewer}/>
-                  ) : (
-                      <></>
-                  )}
-              </div>
-              <div>
-                  {showAboutElement ? (
-                      <AboutContainer showAboutElement={showAboutElement}
-                                      setShowAboutElement={setShowAboutElement}/>
-                  ) : (
-                      <></>
-                  )}
-              </div>
-              <div>
-                  {showHelpElement ? (
-                      <HelpContainer showHelpElement={showHelpElement}
-                                      setShowHelpElement={setShowHelpElement}/>
-                  ) : (
-                      <></>
-                  )}
-              </div>
-          </>
-      )
+          if(Events[0] !== undefined)
+          {
+              console.log(Events[0].categories[0].id)
+          }
+          console.log(Events);
+
+          return (
+              <>
+                  <MainHeaderContainer headerText={globalConstants.APP_NAME}/>
+                  <MainControlsContainer category={category}
+                                         setCategory={setCategory}
+                                         showAboutElement={showAbout}
+                                         setShowAboutElement={setShowAbout}
+                                         showHelpElement={showHelp}
+                                         setShowHelpElement={setShowHelp}
+                                         showEventViewer={showEventViewer}
+                                         setShowEventViewer={setShowEventViewer}/>
+                  <GlobeContainer width={width}
+                                  height={height}
+                                  data={Events}
+                                  isLoading={isLoading}
+                                  category={category}
+                                  eventForViewer={eventForViewer}
+                                  setEventForViewer={setEventForViewer}
+                                  showEventViewer={showEventViewer}
+                                  setShowEventViewer={setShowEventViewer}/>
+                  <div>
+                      {showEventViewer ? (
+                          <EventViewer event={eventForViewer}
+                                       showEventViewer={showEventViewer}
+                                       setShowEventViewer={setShowEventViewer}/>
+                      ) : (
+                          <></>
+                      )}
+                  </div>
+                  <div>
+                      {showAbout ? (
+                          <AboutContainer showAbout={showAbout}
+                                          setShowAbout={setShowAbout}/>
+                      ) : (
+                          <></>
+                      )}
+                  </div>
+                  <div>
+                      {showHelp ? (
+                          <HelpContainer showHelp={showHelp}
+                                         setShowHelp={setShowHelp}/>
+                      ) : (
+                          <></>
+                      )}
+                  </div>
+              </>
+          )
+      }
   }
-
 }
 
 export default App

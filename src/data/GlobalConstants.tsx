@@ -15,3 +15,9 @@ export const VOLCANO_ICON_PATH = "src/assets/images/volcano.png";
 export const WILDFIRE_ICON_PATH = "src/assets/images/fire.png";
 export const FLOOD_ICON_PATH = "src/assets/images/flood.png";
 export const LANDSLIDE_ICON_PATH = "src/assets/images/landslide.png";
+
+export const EARTH_NIGHT_IMG = "//unpkg.com/three-globe/example/img/earth-night.jpg";
+export const EARTH_BLUE_MARBLE_IMG = "//unpkg.com/three-globe/example/img/earth-blue-marble.jpg";
+export const EARTH_TOPOLOGY_MAP = "//unpkg.com/three-globe/example/img/earth-topology.png";
+export const EARTH_DAY_IMG = "//unpkg.com/three-globe@2.30.0/example/img/earth-day.jpg";
+export const NIGHT_SKY_IMG = "//unpkg.com/three-globe/example/img/night-sky.png";

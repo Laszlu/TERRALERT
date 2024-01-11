@@ -18,13 +18,6 @@ type GlobeContainerProps = {
 function GlobeContainer(props: GlobeContainerProps){
 
     let eventIcon: string;
-    // let EventData: {id: string, lat: number, lng: number }[] = Array();
-    //
-    // // NASA Coords are swapped!
-    // props.data.forEach((event) => {
-    //     EventData.push({id: event.id,lat: event.geometry[0].coordinates[1],
-    //         lng: event.geometry[0].coordinates[0]});
-    // })
 
     const EventData = [...Array(props.data.length).keys()].map(() => ({
         lat: 0,
@@ -42,7 +35,6 @@ function GlobeContainer(props: GlobeContainerProps){
     const handleChange = (id: string) => {
         props.setEventForViewer(props.data.find(e => e.id === id) as NaturalEvent)
         props.setShowEventViewer(true);
-        console.log("bool set to true from GlobeContainer");
     };
 
     switch (props.category) {
@@ -54,12 +46,14 @@ function GlobeContainer(props: GlobeContainerProps){
             return(
                 <div className='globe-container'>
                     <Globe
-                        globeImageUrl='//unpkg.com/three-globe/example/img/earth-blue-marble.jpg'
-                        backgroundImageUrl='//unpkg.com/three-globe/example/img/night-sky.png'
+                        globeImageUrl={globalConstants.EARTH_BLUE_MARBLE_IMG}
+                        backgroundImageUrl={globalConstants.NIGHT_SKY_IMG}
+                        bumpImageUrl={globalConstants.EARTH_TOPOLOGY_MAP}
                         width={props.width}
                         height={props.height}
                         showAtmosphere={true}
                         showGraticules={true}
+                        heatmapsData={[]}
                         htmlElementsData={EventData}
                         htmlElement={e => {
                             const el = document.createElement('div');
@@ -83,12 +77,14 @@ function GlobeContainer(props: GlobeContainerProps){
             return(
                 <div className='globe-container'>
                     <Globe
-                        globeImageUrl='//unpkg.com/three-globe/example/img/earth-blue-marble.jpg'
-                        backgroundImageUrl='//unpkg.com/three-globe/example/img/night-sky.png'
+                        globeImageUrl={globalConstants.EARTH_BLUE_MARBLE_IMG}
+                        backgroundImageUrl={globalConstants.NIGHT_SKY_IMG}
+                        bumpImageUrl={globalConstants.EARTH_TOPOLOGY_MAP}
                         width={props.width}
                         height={props.height}
                         showAtmosphere={true}
                         showGraticules={true}
+                        heatmapsData={[]}
                         htmlElementsData={EventData}
                         htmlElement={e => {
                             const el = document.createElement('div');
@@ -102,8 +98,10 @@ function GlobeContainer(props: GlobeContainerProps){
                             return el;
                         }}
                         ringsData={EventData}
-                        ringRepeatPeriod={400}
-                        ringPropagationSpeed={0.5}
+                        ringRepeatPeriod={1000}
+                        ringPropagationSpeed={0.4}
+                        ringMaxRadius={1.5}
+                        ringResolution={80}
                         ringColor={() => "#EE4B2B"}
                     />
                 </div>
@@ -116,12 +114,14 @@ function GlobeContainer(props: GlobeContainerProps){
             return(
                 <div className='globe-container'>
                     <Globe
-                        globeImageUrl='//unpkg.com/three-globe/example/img/earth-blue-marble.jpg'
-                        backgroundImageUrl='//unpkg.com/three-globe/example/img/night-sky.png'
+                        globeImageUrl={globalConstants.EARTH_BLUE_MARBLE_IMG}
+                        backgroundImageUrl={globalConstants.NIGHT_SKY_IMG}
+                        bumpImageUrl={globalConstants.EARTH_TOPOLOGY_MAP}
                         width={props.width}
                         height={props.height}
                         showAtmosphere={true}
                         showGraticules={true}
+                        heatmapsData={[]}
                         htmlElementsData={EventData}
                         htmlElement={e => {
                             const el = document.createElement('div');
@@ -145,12 +145,14 @@ function GlobeContainer(props: GlobeContainerProps){
             return(
                 <div className='globe-container'>
                     <Globe
-                        globeImageUrl='//unpkg.com/three-globe/example/img/earth-blue-marble.jpg'
-                        backgroundImageUrl='//unpkg.com/three-globe/example/img/night-sky.png'
+                        globeImageUrl={globalConstants.EARTH_BLUE_MARBLE_IMG}
+                        backgroundImageUrl={globalConstants.NIGHT_SKY_IMG}
+                        bumpImageUrl={globalConstants.EARTH_TOPOLOGY_MAP}
                         width={props.width}
                         height={props.height}
                         showAtmosphere={true}
                         showGraticules={true}
+                        heatmapsData={[]}
                         htmlElementsData={EventData}
                         htmlElement={e => {
                             const el = document.createElement('div');
@@ -174,12 +176,14 @@ function GlobeContainer(props: GlobeContainerProps){
             return(
                 <div className='globe-container'>
                     <Globe
-                        globeImageUrl='//unpkg.com/three-globe/example/img/earth-blue-marble.jpg'
-                        backgroundImageUrl='//unpkg.com/three-globe/example/img/night-sky.png'
+                        globeImageUrl={globalConstants.EARTH_BLUE_MARBLE_IMG}
+                        backgroundImageUrl={globalConstants.NIGHT_SKY_IMG}
+                        bumpImageUrl={globalConstants.EARTH_TOPOLOGY_MAP}
                         width={props.width}
                         height={props.height}
                         showAtmosphere={true}
                         showGraticules={true}
+                        heatmapsData={[]}
                         htmlElementsData={EventData}
                         htmlElement={e => {
                             const el = document.createElement('div');
@@ -203,12 +207,14 @@ function GlobeContainer(props: GlobeContainerProps){
             return(
                 <div className='globe-container'>
                     <Globe
-                        globeImageUrl='//unpkg.com/three-globe/example/img/earth-blue-marble.jpg'
-                        backgroundImageUrl='//unpkg.com/three-globe/example/img/night-sky.png'
+                        globeImageUrl={globalConstants.EARTH_BLUE_MARBLE_IMG}
+                        backgroundImageUrl={globalConstants.NIGHT_SKY_IMG}
+                        bumpImageUrl={globalConstants.EARTH_TOPOLOGY_MAP}
                         width={props.width}
                         height={props.height}
                         showAtmosphere={true}
                         showGraticules={true}
+                        heatmapsData={[]}
                         htmlElementsData={EventData}
                         htmlElement={e => {
                             const el = document.createElement('div');
@@ -226,11 +232,15 @@ function GlobeContainer(props: GlobeContainerProps){
             )
 
         case EventCategory.ExtremeTemperatures:
+            eventIcon =
+                `<img src=\"${globalConstants.EMPTY_ICON_PATH}\" height=\"${globalConstants.ICON_SIZE}\" alt=\"Event Icon\"/>`;
+
             return(
                 <div className={"globe-container"}>
                     <Globe
-                        globeImageUrl={'//unpkg.com/three-globe/example/img/earth-blue-marble.jpg'}
-                        backgroundImageUrl={'//unpkg.com/three-globe/example/img/night-sky.png'}
+                        globeImageUrl={globalConstants.EARTH_BLUE_MARBLE_IMG}
+                        backgroundImageUrl={globalConstants.NIGHT_SKY_IMG}
+                        bumpImageUrl={globalConstants.EARTH_TOPOLOGY_MAP}
                         width={props.width}
                         height={props.height}
                         showAtmosphere={true}
@@ -242,20 +252,38 @@ function GlobeContainer(props: GlobeContainerProps){
                         heatmapTopAltitude={0}
                         heatmapsTransitionDuration={0}
                         enablePointerInteraction={false}
+                        htmlElementsData={EventData}
+                        htmlElement={e => {
+                            const el = document.createElement('div');
+                            el.id = e.id;
+                            el.innerHTML = eventIcon;
+                            el.style.width = '100px';
+                            el.style.height = '100px';
+                            el.style['pointerEvents'] = 'auto';
+                            el.style.cursor = 'pointer';
+                            el.onclick = () => {console.log(el); handleChange(el.id)};
+                            return el;
+                        }}
                     />
                 </div>
             )
 
         case EventCategory.None:
+            eventIcon =
+                `<img src=\"${globalConstants.EMPTY_ICON_PATH}\" height=\"${globalConstants.ICON_SIZE}\" alt=\"Event Icon\"/>`;
+
             return(
                 <div className='globe-container'>
                     <Globe
-                        globeImageUrl='//unpkg.com/three-globe/example/img/earth-blue-marble.jpg'
-                        backgroundImageUrl='//unpkg.com/three-globe/example/img/night-sky.png'
+                        globeImageUrl={globalConstants.EARTH_BLUE_MARBLE_IMG}
+                        backgroundImageUrl={globalConstants.NIGHT_SKY_IMG}
+                        bumpImageUrl={globalConstants.EARTH_TOPOLOGY_MAP}
                         width={props.width}
                         height={props.height}
                         showAtmosphere={true}
                         showGraticules={true}
+                        heatmapsData={[]}
+                        htmlElementsData={[]}
                     />
                 </div>
             )

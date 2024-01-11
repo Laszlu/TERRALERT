@@ -6,3 +6,19 @@
     margin-bottom: 10%;
     text-align: left;
 }
+
+.error-reload-btn{
+    width: 50%;
+    height: 20%;
+    background-color: darkgray;
+    border: none;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    color: black;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.error-reload-btn:hover{
+    border: solid black 1px;
+}

@@ -4,31 +4,31 @@ import React from "react";
 import {ViewerHeader} from "../headers/HeaderIndex.tsx";
 
 interface IHelpContainerProps {
-    showHelpElement: boolean;
-    setShowHelpElement: React.Dispatch<React.SetStateAction<boolean>>;
+    showHelp: boolean;
+    setShowHelp: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 function HelpContainer(props: IHelpContainerProps) {
 
     const handleClick = () => {
-        props.setShowHelpElement(false);
+        props.setShowHelp(false);
     }
 
     return(
-        <div className={"about-container"}>
-            <div className={"about-background"}>
+        <div className={"popup-container"}>
+            <div className={"popup-background"}>
                 <button className={"close-button"} onClick={() => handleClick()}>
                     &#10005;
                 </button>
                 <ViewerHeader headerText={"Help"}/>
-                <div className={"about-text-container"}>
+                <div className={"popup-text-container"}>
                     <h4>What is TERRALERT?</h4>
                     <p>
                         TERRALERT uses the NASA EONET API to display current Natural Events
                         like Storm or Wildfires in a simple and intuitive way.
                     </p>
                 </div>
-                <div className={"about-text-container"}>
+                <div className={"popup-text-container"}>
                     <h4>How to use TERRALERT:</h4>
                     <p>
                         The Globe in the center shows the events from the selected category.<br/>

@@ -5,8 +5,8 @@ import {ViewerHeader} from "../headers/HeaderIndex.tsx";
 import {GITHUB_URL, MAIL_URL} from "../../../data/GlobalConstants.tsx";
 
 interface IAboutContainerProps {
-    showAboutElement: boolean;
-    setShowAboutElement: React.Dispatch<React.SetStateAction<boolean>>;
+    showAbout: boolean;
+    setShowAbout: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 function OpenSourceLink(link: string){
@@ -16,32 +16,35 @@ function OpenSourceLink(link: string){
 function AboutContainer(props: IAboutContainerProps) {
 
     const handleClick = () => {
-        props.setShowAboutElement(false);
+        props.setShowAbout(false);
     }
 
     return(
-        <div className={"about-container"}>
-            <div className={"about-background"}>
+        <div className={"popup-container"}>
+            <div className={"popup-background"}>
                 <button className={"close-button"} onClick={() => handleClick()}>
                     &#10005;
                 </button>
                 <ViewerHeader headerText={"About"}/>
-                <div className={"about-text-container"}>
+                <div className={"popup-text-container"}>
                     <h4>Content:</h4>
                     <p>
-                        This website uses data from the NASA EONET V3 API for visualization.
+                        This website uses data from the <a href={"https://eonet.gsfc.nasa.gov/docs/v3#eventsAPI"}>NASA EONET V3 API</a>.
                         According to NASA, this data is for general information purposes only
-                        and should not be construed as “official” with regards to spatial or temporal extent.
+                        and should not be construed as “official” with regards to spatial or temporal extent.<br/>
+                        The globe used for visualization is from the
+                        <a href={"https://github.com/vasturiano/react-globe.gl/tree/master#html-elements-layer"}> vasturiano react-globe.gl </a>
+                        Github repository.
                     </p>
                 </div>
-                <div className={"about-text-container"}>
+                <div className={"popup-text-container"}>
                     <h4>Development:</h4>
                     <p>
                         This website was developed by Laszlo Ferreyra as a university project for SAE Institutes Munich.<br/>
                         © TERRALERT 2024
                     </p>
                 </div>
-                <div className={"about-text-container"}>
+                <div className={"popup-text-container"}>
                     <h4>Contact:</h4>
                     <table className={"about-icon-table"}>
                         <tbody>
@@ -64,7 +67,7 @@ function AboutContainer(props: IAboutContainerProps) {
                         </tbody>
                     </table>
                 </div>
-                <div className={"about-text-container"}>
+                <div className={"popup-text-container"}>
                     <h4>Privacy Policy:</h4>
                     <p>
                         This website does not collect any user data.

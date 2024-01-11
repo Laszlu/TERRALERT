@@ -34,7 +34,7 @@ export class Geometry {
 	public magnitudeUnit: string;
 	public date: string;
 	public type: string;
-	// In EONET Lat is [1] and Lng is [0]
+	// In EONET Lat is [1] and Lng is [0  ]
 	public coordinates: number[];
 
 	public constructor(
