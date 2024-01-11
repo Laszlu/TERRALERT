@@ -20,7 +20,6 @@ let emptyEvent =
 
 function SwitchCategory(type: EventCategory, data: EventList | undefined) {
     let dataSubset;
-
     //TODO: change to display live data
     if(typeof data !== undefined){
         switch (type) {
@@ -90,11 +89,27 @@ function App() {
                               setEventForViewer={setEventForViewer}
                               showEventViewer={showEventViewer}
                               setShowEventViewer={setShowEventViewer}/>
+              <div>
+                  {showEventViewer ? (
+                      <EventViewer event={eventForViewer}
+                                   showEventViewer={showEventViewer}
+                                   setShowEventViewer={setShowEventViewer}/>
+                  ) : (
+                      <></>
+                  )}
+              </div>
+              <div>
+                  {showAbout ? (
+                      <AboutContainer showAbout={showAbout}
+                                      setShowAbout={setShowAbout}/>
+                  ) : (
+                      <></>
+                  )}
+              </div>
           </>
       )
-  }
-  else {
-      if(error) {
+  } else {
+      if (error) {
           console.log(error);
           return (
               <>
