@@ -1,13 +1,33 @@
-.layer-toggle{
+.layer-toggle {
     margin-right: 10%;
 }
 
-.cat-switch-with-label{
-    margin-bottom: 10%;
+.cat-radio-btn-container img {
+    height: 40px;
+}
+
+.cat-radio-btn-container label {
+    width: 70%;
     text-align: left;
 }
 
-.error-reload-btn{
+.cat-radio-btn-container label span {
+    font-size: 20px;
+}
+
+.cat-radio-btn-container label span:last-child {
+    margin-right: 50px;
+}
+
+.example-data-checkbox {
+
+}
+
+.example-data-checkbox span {
+    font-size: 20px;
+}
+
+.error-reload-btn {
     width: 50%;
     height: 20%;
     background-color: darkgray;
@@ -19,6 +39,6 @@
     font-size: 1em;
 }
 
-.error-reload-btn:hover{
+.error-reload-btn:hover {
     border: solid black 1px;
 }

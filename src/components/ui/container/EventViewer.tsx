@@ -18,7 +18,6 @@ function EventViewer(props: EventViewerProps) {
 
     const handleClick = () => {
         props.setShowEventViewer(false);
-        console.log("showEventViewer set to false");
     }
 
     let selectedEvent = props.event;
@@ -61,11 +60,21 @@ function EventViewer(props: EventViewerProps) {
                                                 <tbody>
                                                 <tr className={"data-table-row-inner"}>
                                                     <td className={"data-table-inner-td-left"}>Latitude:</td>
-                                                    <td>{geo.coordinates[0]}</td>
+                                                    {(typeof geo.coordinates[0] === "number") ? (
+                                                        <td>{geo.coordinates[0]}</td>
+                                                    ) : (
+                                                        <td>{geo.coordinates[0][0]}</td>
+                                                    )}
+
+
                                                 </tr>
                                                 <tr className={"data-table-row-inner"}>
                                                     <td className={"data-table-inner-td-left"}>Longitude:</td>
-                                                    <td>{geo.coordinates[1]}</td>
+                                                    {(typeof geo.coordinates[1] === "number") ? (
+                                                        <td>{geo.coordinates[1]}</td>
+                                                    ) : (
+                                                        <td>{geo.coordinates[0][1]}</td>
+                                                    )}
                                                 </tr>
                                                 <tr className={"data-table-row-inner"}>
                                                     <td className={"data-table-inner-td-left"}>Magnitude:</td>

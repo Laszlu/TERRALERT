@@ -11,6 +11,7 @@ import {Categorie, EventCategory, EventList, Geometry, NaturalEvent, Source} fro
 import useFetchHook from 'react-fetch-hook';
 import {useState} from "react";
 import EventViewer from "../components/ui/container/EventViewer.tsx";
+import sampleData from "../data/sample-data.json";
 
 let emptyEvent =
     new NaturalEvent("none", "none", "none", "none",
@@ -18,36 +19,51 @@ let emptyEvent =
         [new Geometry(0, "none", "none", "none", [0, 0])],
         "none")
 
-function SwitchCategory(type: EventCategory, data: EventList | undefined) {
+function SwitchCategory(type: EventCategory, data: any) {
     let dataSubset;
-    //TODO: change to display live data
     if(typeof data !== undefined){
         switch (type) {
             case EventCategory.Storms:
-                dataSubset = data.events.filter(e => e.categories[0].id === EventCategory.Volcanoes);
-                //dataSubset = data.events.filter(e => e.categories[0].id === EventCategory.Storms);
+                dataSubset = data.events.filter(e => e.categories.some(cat =>
+                    cat.id == EventCategory.Storms));
+                console.log("data subset:");
+                console.log(dataSubset);
                 return dataSubset;
             case EventCategory.Earthquakes:
-                dataSubset = data.events.filter(e => e.categories[0].id === EventCategory.Volcanoes);
-                //dataSubset = data.events.filter(e => e.categories[0].id === EventCategory.Earthquakes);
+                dataSubset = data.events.filter(e => e.categories.some(cat =>
+                    cat.id == EventCategory.Earthquakes));
+                console.log("data subset:");
+                console.log(dataSubset);
                 return dataSubset;
             case EventCategory.Volcanoes:
-                dataSubset = data.events.filter(e => e.categories[0].id === EventCategory.Volcanoes);
+                dataSubset = data.events.filter(e => e.categories.some(cat =>
+                    cat.id == EventCategory.Volcanoes));
+                console.log("data subset:");
+                console.log(dataSubset);
                 return dataSubset;
             case EventCategory.Wildfires:
-                dataSubset = data.events.filter(e => e.categories[0].id === EventCategory.Wildfires);
+                dataSubset = data.events.filter(e => e.categories.some(cat =>
+                    cat.id == EventCategory.Wildfires));
+                console.log("data subset:");
+                console.log(dataSubset);
                 return dataSubset;
             case EventCategory.Floods:
-                dataSubset = data.events.filter(e => e.categories[0].id === EventCategory.Volcanoes);
-                //dataSubset = data.events.filter(e => e.categories[0].id === EventCategory.Floods);
+                dataSubset = data.events.filter(e => e.categories.some(cat =>
+                    cat.id == EventCategory.Floods));
+                console.log("data subset:");
+                console.log(dataSubset);
                 return dataSubset;
             case EventCategory.Landslides:
-                dataSubset = data.events.filter(e => e.categories[0].id === EventCategory.Volcanoes);
-                //dataSubset = data.events.filter(e => e.categories[0].id === EventCategory.Landslides);
+                dataSubset = data.events.filter(e => e.categories.some(cat =>
+                    cat.id == EventCategory.Landslides));
+                console.log("data subset:");
+                console.log(dataSubset);
                 return dataSubset;
             case EventCategory.ExtremeTemperatures:
-                dataSubset = data.events.filter(e => e.categories[0].id === EventCategory.Volcanoes);
-                //dataSubset = data.events.filter(e => e.categories[0].id === EventCategory.ExtremeTemperatures);
+                dataSubset = data.events.filter(e => e.categories.some(cat =>
+                    cat.id == EventCategory.ExtremeTemperatures));
+                console.log("data subset:");
+                console.log(dataSubset);
                 return dataSubset;
             case EventCategory.None:
                 dataSubset = new Array<NaturalEvent>();
@@ -62,55 +78,20 @@ function App() {
     const [showEventViewer, setShowEventViewer] = useState(false);
     const [showAbout, setShowAbout] = useState(false);
     const [showHelp, setShowHelp] = useState(false);
+    const [useSampleData, setUseSampleData] = useState(false);
 
   const { width, height } = useWindowDimensions();
 
-  const {isLoading, data, error} =
-      useFetchHook<EventList>(globalConstants.EONET_URL);
+    const {isLoading, data, error} =
+        useFetchHook(globalConstants.EONET_URL);
 
-  if (isLoading) {
-      return (
-          <>
-              <MainHeaderContainer headerText={globalConstants.APP_NAME}/>
-              <MainControlsContainer category={category}
-                                     setCategory={setCategory}
-                                     showAboutElement={showAbout}
-                                     setShowAboutElement={setShowAbout}
-                                     showHelpElement={showHelp}
-                                     setShowHelpElement={setShowHelp}
-                                     showEventViewer={showEventViewer}
-                                     setShowEventViewer={setShowEventViewer}/>
-              <GlobeContainer width={width}
-                              height={height}
-                              isLoading={isLoading}
-                              data={[]}
-                              category={EventCategory.None}
-                              eventForViewer={eventForViewer}
-                              setEventForViewer={setEventForViewer}
-                              showEventViewer={showEventViewer}
-                              setShowEventViewer={setShowEventViewer}/>
-              <div>
-                  {showEventViewer ? (
-                      <EventViewer event={eventForViewer}
-                                   showEventViewer={showEventViewer}
-                                   setShowEventViewer={setShowEventViewer}/>
-                  ) : (
-                      <></>
-                  )}
-              </div>
-              <div>
-                  {showAbout ? (
-                      <AboutContainer showAbout={showAbout}
-                                      setShowAbout={setShowAbout}/>
-                  ) : (
-                      <></>
-                  )}
-              </div>
-          </>
-      )
-  } else {
-      if (error) {
-          console.log(error);
+    console.log("data after fetch:");
+    console.log(data);
+
+
+  if(!useSampleData) {
+
+      if (isLoading) {
           return (
               <>
                   <MainHeaderContainer headerText={globalConstants.APP_NAME}/>
@@ -121,47 +102,14 @@ function App() {
                                          showHelpElement={showHelp}
                                          setShowHelpElement={setShowHelp}
                                          showEventViewer={showEventViewer}
-                                         setShowEventViewer={setShowEventViewer}/>
+                                         setShowEventViewer={setShowEventViewer}
+                                         useSampleData={useSampleData}
+                                         setUseSampleData={setUseSampleData}/>
                   <GlobeContainer width={width}
                                   height={height}
                                   isLoading={isLoading}
                                   data={[]}
                                   category={EventCategory.None}
-                                  eventForViewer={eventForViewer}
-                                  setEventForViewer={setEventForViewer}
-                                  showEventViewer={showEventViewer}
-                                  setShowEventViewer={setShowEventViewer}/>
-                  <div>
-                    <ErrorContainer/>
-                  </div>
-              </>
-          )
-      }
-      else {
-          let Events = SwitchCategory(category, data);
-
-          if(Events[0] !== undefined)
-          {
-              console.log(Events[0].categories[0].id)
-          }
-          console.log(Events);
-
-          return (
-              <>
-                  <MainHeaderContainer headerText={globalConstants.APP_NAME}/>
-                  <MainControlsContainer category={category}
-                                         setCategory={setCategory}
-                                         showAboutElement={showAbout}
-                                         setShowAboutElement={setShowAbout}
-                                         showHelpElement={showHelp}
-                                         setShowHelpElement={setShowHelp}
-                                         showEventViewer={showEventViewer}
-                                         setShowEventViewer={setShowEventViewer}/>
-                  <GlobeContainer width={width}
-                                  height={height}
-                                  data={Events}
-                                  isLoading={isLoading}
-                                  category={category}
                                   eventForViewer={eventForViewer}
                                   setEventForViewer={setEventForViewer}
                                   showEventViewer={showEventViewer}
@@ -183,17 +131,148 @@ function App() {
                           <></>
                       )}
                   </div>
-                  <div>
-                      {showHelp ? (
-                          <HelpContainer showHelp={showHelp}
-                                         setShowHelp={setShowHelp}/>
-                      ) : (
-                          <></>
-                      )}
-                  </div>
               </>
           )
+      } else {
+          if (error) {
+              console.log(error);
+              return (
+                  <>
+                      <MainHeaderContainer headerText={globalConstants.APP_NAME}/>
+                      <MainControlsContainer category={category}
+                                             setCategory={setCategory}
+                                             showAboutElement={showAbout}
+                                             setShowAboutElement={setShowAbout}
+                                             showHelpElement={showHelp}
+                                             setShowHelpElement={setShowHelp}
+                                             showEventViewer={showEventViewer}
+                                             setShowEventViewer={setShowEventViewer}
+                                             useSampleData={useSampleData}
+                                             setUseSampleData={setUseSampleData}/>
+                      <GlobeContainer width={width}
+                                      height={height}
+                                      isLoading={isLoading}
+                                      data={[]}
+                                      category={EventCategory.None}
+                                      eventForViewer={eventForViewer}
+                                      setEventForViewer={setEventForViewer}
+                                      showEventViewer={showEventViewer}
+                                      setShowEventViewer={setShowEventViewer}/>
+                      <div>
+                          <ErrorContainer/>
+                      </div>
+                  </>
+              )
+          }
+          else {
+              let Events = SwitchCategory(category, data);
+
+              return (
+                  <>
+                      <MainHeaderContainer headerText={globalConstants.APP_NAME}/>
+                      <MainControlsContainer category={category}
+                                             setCategory={setCategory}
+                                             showAboutElement={showAbout}
+                                             setShowAboutElement={setShowAbout}
+                                             showHelpElement={showHelp}
+                                             setShowHelpElement={setShowHelp}
+                                             showEventViewer={showEventViewer}
+                                             setShowEventViewer={setShowEventViewer}
+                                             useSampleData={useSampleData}
+                                             setUseSampleData={setUseSampleData}/>
+                      <GlobeContainer width={width}
+                                      height={height}
+                                      data={Events}
+                                      isLoading={isLoading}
+                                      category={category}
+                                      eventForViewer={eventForViewer}
+                                      setEventForViewer={setEventForViewer}
+                                      showEventViewer={showEventViewer}
+                                      setShowEventViewer={setShowEventViewer}/>
+                      <div>
+                          {showEventViewer ? (
+                              <EventViewer event={eventForViewer}
+                                           showEventViewer={showEventViewer}
+                                           setShowEventViewer={setShowEventViewer}/>
+                          ) : (
+                              <></>
+                          )}
+                      </div>
+                      <div>
+                          {showAbout ? (
+                              <AboutContainer showAbout={showAbout}
+                                              setShowAbout={setShowAbout}/>
+                          ) : (
+                              <></>
+                          )}
+                      </div>
+                      <div>
+                          {showHelp ? (
+                              <HelpContainer showHelp={showHelp}
+                                             setShowHelp={setShowHelp}/>
+                          ) : (
+                              <></>
+                          )}
+                      </div>
+                  </>
+              )
+          }
       }
+  }
+  else {
+      let data : EventList = sampleData;
+
+      let Events = SwitchCategory(category, data);
+
+      return (
+          <>
+              <MainHeaderContainer headerText={globalConstants.APP_NAME}/>
+              <MainControlsContainer category={category}
+                                     setCategory={setCategory}
+                                     showAboutElement={showAbout}
+                                     setShowAboutElement={setShowAbout}
+                                     showHelpElement={showHelp}
+                                     setShowHelpElement={setShowHelp}
+                                     showEventViewer={showEventViewer}
+                                     setShowEventViewer={setShowEventViewer}
+                                     useSampleData={useSampleData}
+                                     setUseSampleData={setUseSampleData}/>
+              <GlobeContainer width={width}
+                              height={height}
+                              data={Events}
+                              isLoading={false}
+                              category={category}
+                              eventForViewer={eventForViewer}
+                              setEventForViewer={setEventForViewer}
+                              showEventViewer={showEventViewer}
+                              setShowEventViewer={setShowEventViewer}/>
+              <div>
+                  {showEventViewer ? (
+                      <EventViewer event={eventForViewer}
+                                   showEventViewer={showEventViewer}
+                                   setShowEventViewer={setShowEventViewer}/>
+                  ) : (
+                      <></>
+                  )}
+              </div>
+              <div>
+                  {showAbout ? (
+                      <AboutContainer showAbout={showAbout}
+                                      setShowAbout={setShowAbout}/>
+                  ) : (
+                      <></>
+                  )}
+              </div>
+              <div>
+                  {showHelp ? (
+                      <HelpContainer showHelp={showHelp}
+                                     setShowHelp={setShowHelp}/>
+                  ) : (
+                      <></>
+                  )}
+              </div>
+          </>
+      )
   }
 }
 
