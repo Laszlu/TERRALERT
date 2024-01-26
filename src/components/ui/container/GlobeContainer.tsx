@@ -1,27 +1,15 @@
 import Globe from 'react-globe.gl';
 import {EventCategory, NaturalEvent} from "../../../data/Model.tsx";
 import * as globalConstants from '../../../data/GlobalConstants.tsx';
-import React from "react";
+import {IGlobeContainerProps} from "../../../data/Interfaces.tsx";
 
-type GlobeContainerProps = {
-    width: number;
-    height: number;
-    isLoading: boolean;
-    data: NaturalEvent[];
-    category: EventCategory;
-    showEventViewer: boolean;
-    setShowEventViewer: React.Dispatch<React.SetStateAction<boolean>>;
-    eventForViewer: NaturalEvent;
-    setEventForViewer: React.Dispatch<React.SetStateAction<NaturalEvent>>;
-  }
-
-function average(arr: number[]) {
+function Average(arr: number[]) {
     let allValues = arr.reduce((a,b)=> a + b)
     let average = (allValues/arr.length).toFixed(2);
-    return average;
+    return parseInt(average);
 }
 
-function GlobeContainer(props: GlobeContainerProps){
+function GlobeContainer(props: IGlobeContainerProps){
 
     let eventIcon: string;
 
@@ -45,8 +33,8 @@ function GlobeContainer(props: GlobeContainerProps){
             let longs = props.data[i].geometry[lastIndex].coordinates[0].map(c => {
                 return c[0];
             });
-            let lat = average(lats);
-            let lng = average(longs);
+            let lat = Average(lats);
+            let lng = Average(longs);
             EventData[i].lat = lat;
             EventData[i].lng = lng;
             EventData[i].id = props.data[i].id;
@@ -266,8 +254,6 @@ function GlobeContainer(props: GlobeContainerProps){
             eventIcon =
                 `<img src=\"${globalConstants.TEMPERATURE_ICON_PATH}\" height=\"${globalConstants.ICON_SIZE}\" alt=\"Event Icon\"/>`;
 
-            console.log(EventData)
-
             return(
                 <div className='globe-container'>
                     <Globe
@@ -316,8 +302,6 @@ function GlobeContainer(props: GlobeContainerProps){
                 </div>
             )
     }
-
-
 }
 
 export default GlobeContainer;

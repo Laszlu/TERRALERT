@@ -1,20 +1,13 @@
-import {NaturalEvent} from "../../../data/Model";
 import {ViewerHeader} from '../headers/HeaderIndex.tsx';
 import "../../../assets/styles/container.css";
 import "../../../assets/styles/index.css";
-import React from "react";
-
-type EventViewerProps = {
-    event: NaturalEvent;
-    showEventViewer: boolean;
-    setShowEventViewer: React.Dispatch<React.SetStateAction<boolean>>;
-}
+import {IEventViewerProps} from "../../../data/Interfaces.tsx";
 
 function OpenSourceLink(link: string){
     window.open(link, "_blank", "noreferrer");
 }
 
-function EventViewer(props: EventViewerProps) {
+function EventViewer(props: IEventViewerProps) {
 
     const handleClick = () => {
         props.setShowEventViewer(false);

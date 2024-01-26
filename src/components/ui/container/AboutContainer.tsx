@@ -3,13 +3,9 @@ import "../../../assets/styles/index.css";
 import React from "react";
 import {ViewerHeader} from "../headers/HeaderIndex.tsx";
 import {GITHUB_URL, MAIL_URL} from "../../../data/GlobalConstants.tsx";
+import {IAboutContainerProps} from "../../../data/Interfaces.tsx";
 
-interface IAboutContainerProps {
-    showAbout: boolean;
-    setShowAbout: React.Dispatch<React.SetStateAction<boolean>>;
-}
-
-function OpenSourceLink(link: string){
+function OpenLink(link: string){
     window.open(link, "_blank", "noreferrer");
 }
 
@@ -53,14 +49,14 @@ function AboutContainer(props: IAboutContainerProps) {
                                 <div className={"about-icon-table-left"}>
                                     <img src={"src/assets/images/github-mark.png"}
                                          alt={"Github Logo"} height={"20px"}
-                                         onClick={() => OpenSourceLink(GITHUB_URL)}/>
+                                         onClick={() => OpenLink(GITHUB_URL)}/>
                                 </div>
                             </td>
                             <td>
                                 <div className={"about-icon-table-right"}>
                                     <img src={"src/assets/images/Gmail.png"}
                                          alt={"Gmail Logo"} height={"20px"}
-                                         onClick={() => OpenSourceLink(MAIL_URL)}/>
+                                         onClick={() => OpenLink(MAIL_URL)}/>
                                 </div>
                             </td>
                         </tr>

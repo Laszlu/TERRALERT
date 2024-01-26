@@ -1,3 +1,3 @@
-import CategoryRadioGroup from "./Toggle.tsx";
+import CategoryRadioGroup from "./CategoryRadioGroup.tsx";
 
 export {CategoryRadioGroup};

@@ -1,12 +1,7 @@
 import "../../../assets/styles/container.css";
 import "../../../assets/styles/index.css";
-import React from "react";
 import {ViewerHeader} from "../headers/HeaderIndex.tsx";
-
-interface IHelpContainerProps {
-    showHelp: boolean;
-    setShowHelp: React.Dispatch<React.SetStateAction<boolean>>;
-}
+import {IHelpContainerProps} from "../../../data/Interfaces.tsx";
 
 function HelpContainer(props: IHelpContainerProps) {
 

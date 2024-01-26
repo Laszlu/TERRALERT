@@ -1,11 +1,7 @@
 import '../../../assets/styles/Text.css';
+import {IHeaderProps} from "../../../data/Interfaces.tsx";
 
-
-type ContentHeaderProps = {
-    headerText: string;
-}
-
-function ControlsHeader(props: ContentHeaderProps){
+function ControlsHeader(props: IHeaderProps){
     return(
         <div className="controls-header">
             <h2 className="controls-h2">

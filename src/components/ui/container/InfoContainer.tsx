@@ -1,12 +1,5 @@
 import "../../../assets/styles/container.css";
-import React from "react";
-
-interface IInfoContainerProps {
-    showAboutElement: boolean;
-    setShowAboutElement: React.Dispatch<React.SetStateAction<boolean>>;
-    showHelpElement: boolean;
-    setShowHelpElement: React.Dispatch<React.SetStateAction<boolean>>;
-}
+import {IInfoContainerProps} from "../../../data/Interfaces.tsx";
 
 function InfoContainer(props: IInfoContainerProps) {
     const handleAboutClick = () => {
@@ -15,7 +8,7 @@ function InfoContainer(props: IInfoContainerProps) {
 
     const handleHelpClick = () => {
         props.setShowHelpElement(true);
-    }
+    };
 
     return(
         <div className={"info-background"}>

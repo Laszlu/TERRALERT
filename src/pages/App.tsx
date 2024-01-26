@@ -6,7 +6,7 @@ import {
     AboutContainer, HelpContainer
 } from '../components/ui/container/ContainerIndex.tsx';
 import * as globalConstants from '../data/GlobalConstants.tsx';
-import useWindowDimensions from '../hooks/WindowDimensionsHook.tsx';
+import UseWindowDimensions from '../hooks/WindowDimensionsHook.tsx';
 import {Categorie, EventCategory, EventList, Geometry, NaturalEvent, Source} from '../data/Model.tsx';
 import useFetchHook from 'react-fetch-hook';
 import {useState} from "react";
@@ -26,44 +26,30 @@ function SwitchCategory(type: EventCategory, data: any) {
             case EventCategory.Storms:
                 dataSubset = data.events.filter(e => e.categories.some(cat =>
                     cat.id == EventCategory.Storms));
-                console.log("data subset:");
-                console.log(dataSubset);
                 return dataSubset;
             case EventCategory.Earthquakes:
                 dataSubset = data.events.filter(e => e.categories.some(cat =>
                     cat.id == EventCategory.Earthquakes));
-                console.log("data subset:");
-                console.log(dataSubset);
                 return dataSubset;
             case EventCategory.Volcanoes:
                 dataSubset = data.events.filter(e => e.categories.some(cat =>
                     cat.id == EventCategory.Volcanoes));
-                console.log("data subset:");
-                console.log(dataSubset);
                 return dataSubset;
             case EventCategory.Wildfires:
                 dataSubset = data.events.filter(e => e.categories.some(cat =>
                     cat.id == EventCategory.Wildfires));
-                console.log("data subset:");
-                console.log(dataSubset);
                 return dataSubset;
             case EventCategory.Floods:
                 dataSubset = data.events.filter(e => e.categories.some(cat =>
                     cat.id == EventCategory.Floods));
-                console.log("data subset:");
-                console.log(dataSubset);
                 return dataSubset;
             case EventCategory.Landslides:
                 dataSubset = data.events.filter(e => e.categories.some(cat =>
                     cat.id == EventCategory.Landslides));
-                console.log("data subset:");
-                console.log(dataSubset);
                 return dataSubset;
             case EventCategory.ExtremeTemperatures:
                 dataSubset = data.events.filter(e => e.categories.some(cat =>
                     cat.id == EventCategory.ExtremeTemperatures));
-                console.log("data subset:");
-                console.log(dataSubset);
                 return dataSubset;
             case EventCategory.None:
                 dataSubset = new Array<NaturalEvent>();
@@ -80,14 +66,10 @@ function App() {
     const [showHelp, setShowHelp] = useState(false);
     const [useSampleData, setUseSampleData] = useState(false);
 
-  const { width, height } = useWindowDimensions();
+  const { width, height } = UseWindowDimensions();
 
-    const {isLoading, data, error} =
-        useFetchHook(globalConstants.EONET_URL);
-
-    console.log("data after fetch:");
-    console.log(data);
-
+  const {isLoading, data, error} =
+      useFetchHook(globalConstants.EONET_URL);
 
   if(!useSampleData) {
 
@@ -127,6 +109,14 @@ function App() {
                       {showAbout ? (
                           <AboutContainer showAbout={showAbout}
                                           setShowAbout={setShowAbout}/>
+                      ) : (
+                          <></>
+                      )}
+                  </div>
+                  <div>
+                      {showHelp ? (
+                          <HelpContainer showHelp={showHelp}
+                                         setShowHelp={setShowHelp}/>
                       ) : (
                           <></>
                       )}

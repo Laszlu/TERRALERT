@@ -1,10 +1,7 @@
 import '../../../assets/styles/Text.css';
+import {IHeaderProps} from "../../../data/Interfaces.tsx";
 
-type ViewerHeaderProps = {
-    headerText: string;
-}
-
-function ViewerHeader(props: ViewerHeaderProps){
+function ViewerHeader(props: IHeaderProps){
     return(
         <div className="viewer-header">
             <div className="viewer-header-text">
