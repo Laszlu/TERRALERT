@@ -69,10 +69,12 @@ function EventViewer(props: IEventViewerProps) {
                                                         <td>{geo.coordinates[0][1]}</td>
                                                     )}
                                                 </tr>
-                                                <tr className={"data-table-row-inner"}>
-                                                    <td className={"data-table-inner-td-left"}>Magnitude:</td>
-                                                    <td>{geo.magnitudeValue}</td>
-                                                </tr>
+                                                {geo.magnitudeValue !== null ? (
+                                                    <tr className={"data-table-row-inner"}>
+                                                        <td className={"data-table-inner-td-left"}>Magnitude:</td>
+                                                        <td>{geo.magnitudeValue}</td>
+                                                    </tr>
+                                                ) : (<></>)}
                                                 </tbody>
                                             </table>
                                         </td>

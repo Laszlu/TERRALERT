@@ -25,17 +25,22 @@ function HelpContainer(props: IHelpContainerProps) {
                 </div>
                 <div className={"popup-text-container"}>
                     <h4>How to use TERRALERT:</h4>
-                    <p>
-                        The Globe in the center shows the events from the selected category.<br/>
-                        The category selection is found on the left side.
-                        If a selected category does not show anything on the globe,
-                        there is no data for this category available.<br/>
-                        Clicking on an event on the globe
-                        opens the Event Information Viewer on the right side.
-                        The Viewer shows Information for the selected event and
-                        the "Source" button redirects to the original source for the event.
-                    </p>
+                    <label>Globe:</label>
+                    <p>Shows all Events from the current category<br/>Click the icon to bring up the Viewer</p>
+                    <label>Controls:</label>
+                    <p>Switch category<br/>Tick Checkbox to use older sample data</p>
+                    <label>Viewer:</label>
+                    <p>Shows all information for the selected event<br/>Click "Source" to open original source</p>
                 </div>
+            </div>
+            <div className={"help-controls-border"}>
+                <label className={"help-label"}>Controls</label>
+            </div>
+            <div className={"help-viewer-border"}>
+                <label className={"help-label"}>Viewer</label>
+            </div>
+            <div className={"help-globe-border"}>
+                <label className={"help-label"}>Globe</label>
             </div>
         </div>
     )
