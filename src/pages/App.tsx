@@ -7,7 +7,7 @@ import {
 } from '../components/ui/container/ContainerIndex.tsx';
 import * as globalConstants from '../data/GlobalConstants.tsx';
 import UseWindowDimensions from '../hooks/WindowDimensionsHook.tsx';
-import {Categorie, EventCategory, EventList, Geometry, NaturalEvent, Source} from '../data/Model.tsx';
+import {Categorie, EventCategory, Geometry, NaturalEvent, Source} from '../data/Model.tsx';
 import useFetchHook from 'react-fetch-hook';
 import {useState} from "react";
 import EventViewer from "../components/ui/container/EventViewer.tsx";
@@ -24,31 +24,31 @@ function SwitchCategory(type: EventCategory, data: any) {
     if(typeof data !== undefined){
         switch (type) {
             case EventCategory.Storms:
-                dataSubset = data.events.filter(e => e.categories.some(cat =>
+                dataSubset = data.events.filter((e: { categories: any[]; }) => e.categories.some(cat =>
                     cat.id == EventCategory.Storms));
                 return dataSubset;
             case EventCategory.Earthquakes:
-                dataSubset = data.events.filter(e => e.categories.some(cat =>
+                dataSubset = data.events.filter((e: { categories: any[]; }) => e.categories.some(cat =>
                     cat.id == EventCategory.Earthquakes));
                 return dataSubset;
             case EventCategory.Volcanoes:
-                dataSubset = data.events.filter(e => e.categories.some(cat =>
+                dataSubset = data.events.filter((e: { categories: any[]; }) => e.categories.some(cat =>
                     cat.id == EventCategory.Volcanoes));
                 return dataSubset;
             case EventCategory.Wildfires:
-                dataSubset = data.events.filter(e => e.categories.some(cat =>
+                dataSubset = data.events.filter((e: { categories: any[]; }) => e.categories.some(cat =>
                     cat.id == EventCategory.Wildfires));
                 return dataSubset;
             case EventCategory.Floods:
-                dataSubset = data.events.filter(e => e.categories.some(cat =>
+                dataSubset = data.events.filter((e: { categories: any[]; }) => e.categories.some(cat =>
                     cat.id == EventCategory.Floods));
                 return dataSubset;
             case EventCategory.Landslides:
-                dataSubset = data.events.filter(e => e.categories.some(cat =>
+                dataSubset = data.events.filter((e: { categories: any[]; }) => e.categories.some(cat =>
                     cat.id == EventCategory.Landslides));
                 return dataSubset;
             case EventCategory.ExtremeTemperatures:
-                dataSubset = data.events.filter(e => e.categories.some(cat =>
+                dataSubset = data.events.filter((e: { categories: any[]; }) => e.categories.some(cat =>
                     cat.id == EventCategory.ExtremeTemperatures));
                 return dataSubset;
             case EventCategory.None:
@@ -210,7 +210,7 @@ function App() {
       }
   }
   else {
-      let data : EventList = sampleData;
+      let data : any = sampleData;
 
       let Events = SwitchCategory(category, data);
 

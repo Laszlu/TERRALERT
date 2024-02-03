@@ -22,16 +22,16 @@ function GlobeContainer(props: IGlobeContainerProps){
     for (let i = 0; i < props.data.length; i++){
         let lastIndex = props.data[i].geometry.length - 1;
         if(typeof props.data[i].geometry[lastIndex].coordinates[0] === "number") {
-            EventData[i].lat = props.data[i].geometry[lastIndex].coordinates[1];
-            EventData[i].lng = props.data[i].geometry[lastIndex].coordinates[0];
+            EventData[i].lat = props.data[i].geometry[lastIndex].coordinates[1] as number;
+            EventData[i].lng = props.data[i].geometry[lastIndex].coordinates[0] as number;
             EventData[i].id = props.data[i].id;
         }
         else {
-            let lats = props.data[i].geometry[lastIndex].coordinates[0].map(c => {
-                return c[1];
+            let lats = (props.data[i].geometry[lastIndex].coordinates[0] as number[]).map(c => {
+                return (c as unknown as number[])[1];
             });
-            let longs = props.data[i].geometry[lastIndex].coordinates[0].map(c => {
-                return c[0];
+            let longs = (props.data[i].geometry[lastIndex].coordinates[0] as number[]).map(c => {
+                return (c as unknown as number[])[0];
             });
             let lat = Average(lats);
             let lng = Average(longs);
@@ -66,7 +66,7 @@ function GlobeContainer(props: IGlobeContainerProps){
                         htmlElementsData={EventData}
                         htmlElement={e => {
                             const el = document.createElement('div');
-                            el.id = e.id;
+                            el.id = (e as NaturalEvent).id;
                             el.className = "unselectable";
                             el.innerHTML = eventIcon;
                             el.style.width = '50px';
@@ -98,7 +98,7 @@ function GlobeContainer(props: IGlobeContainerProps){
                         htmlElementsData={EventData}
                         htmlElement={e => {
                             const el = document.createElement('div');
-                            el.id = e.id;
+                            el.id = (e as NaturalEvent).id;
                             el.className = "unselectable";
                             el.innerHTML = eventIcon;
                             el.style.width = '50px';
@@ -136,7 +136,7 @@ function GlobeContainer(props: IGlobeContainerProps){
                         htmlElementsData={EventData}
                         htmlElement={e => {
                             const el = document.createElement('div');
-                            el.id = e.id;
+                            el.id = (e as NaturalEvent).id;
                             el.className = "unselectable";
                             el.innerHTML = eventIcon;
                             el.style.width = '50px';
@@ -168,7 +168,7 @@ function GlobeContainer(props: IGlobeContainerProps){
                         htmlElementsData={EventData}
                         htmlElement={e => {
                             const el = document.createElement('div');
-                            el.id = e.id;
+                            el.id = (e as NaturalEvent).id;
                             el.className = "unselectable";
                             el.innerHTML = eventIcon;
                             el.style.width = '50px';
@@ -202,7 +202,7 @@ function GlobeContainer(props: IGlobeContainerProps){
                         htmlElementsData={EventData}
                         htmlElement={e => {
                             const el = document.createElement('div');
-                            el.id = e.id;
+                            el.id = (e as NaturalEvent).id;
                             el.className = "unselectable";
                             el.innerHTML = eventIcon;
                             el.style.width = '50px';
@@ -236,7 +236,7 @@ function GlobeContainer(props: IGlobeContainerProps){
                         htmlElementsData={EventData}
                         htmlElement={e => {
                             const el = document.createElement('div');
-                            el.id = e.id;
+                            el.id = (e as NaturalEvent).id;
                             el.className = "unselectable";
                             el.innerHTML = eventIcon;
                             el.style.width = '50px';
@@ -268,7 +268,7 @@ function GlobeContainer(props: IGlobeContainerProps){
                         htmlElementsData={EventData}
                         htmlElement={e => {
                             const el = document.createElement('div');
-                            el.id = e.id;
+                            el.id = (e as NaturalEvent).id;
                             el.className = "unselectable";
                             el.innerHTML = eventIcon;
                             el.style.width = '50px';

@@ -15,6 +15,9 @@ function EventViewer(props: IEventViewerProps) {
 
     let selectedEvent = props.event;
 
+    // @ts-ignore
+    // @ts-ignore
+    // @ts-ignore
     return (
         <div className={"viewer-container"}>
             <div className={"viewer-background"}>
@@ -66,7 +69,7 @@ function EventViewer(props: IEventViewerProps) {
                                                     {(typeof geo.coordinates[1] === "number") ? (
                                                         <td>{geo.coordinates[1]}</td>
                                                     ) : (
-                                                        <td>{geo.coordinates[0][1]}</td>
+                                                        <td>{(geo.coordinates as number[][])[0][1]}</td>
                                                     )}
                                                 </tr>
                                                 {geo.magnitudeValue !== null ? (
