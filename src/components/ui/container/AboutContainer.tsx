@@ -3,6 +3,7 @@ import "../../../assets/styles/index.css";
 import {ViewerHeader} from "../headers/HeaderIndex.tsx";
 import {GITHUB_URL, MAIL_URL} from "../../../data/GlobalConstants.tsx";
 import {IAboutContainerProps} from "../../../data/Interfaces.tsx";
+import * as globalConstants from "../../../data/GlobalConstants.tsx";
 
 function OpenLink(link: string){
     window.open(link, "_blank", "noreferrer");
@@ -53,7 +54,7 @@ function AboutContainer(props: IAboutContainerProps) {
                             </td>
                             <td>
                                 <div className={"about-icon-table-right"}>
-                                    <img src={"src/assets/images/Gmail.png"}
+                                    <img src={globalConstants.GMAIL_ICON}
                                          alt={"Gmail Logo"} height={"20px"}
                                          onClick={() => OpenLink(MAIL_URL)}/>
                                 </div>
