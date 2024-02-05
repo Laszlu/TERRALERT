@@ -37,3 +37,5 @@ export const GMAIL_ICON =
     "https://raw.githubusercontent.com/Laszlu/TERRALERT/main/src/assets/images/Gmail.png";
 export const GITHUB_ICON =
     "https://raw.githubusercontent.com/Laszlu/TERRALERT/main/src/assets/images/github-mark.png";
+export const EARTH_ICON =
+    "https://raw.githubusercontent.com/Laszlu/TERRALERT/main/public/earth.png";

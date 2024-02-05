@@ -47,7 +47,7 @@ function AboutContainer(props: IAboutContainerProps) {
                         <tr>
                             <td>
                                 <div className={"about-icon-table-left"}>
-                                    <img src={"src/assets/images/github-mark.png"}
+                                    <img src={globalConstants.GITHUB_ICON}
                                          alt={"Github Logo"} height={"20px"}
                                          onClick={() => OpenLink(GITHUB_URL)}/>
                                 </div>
