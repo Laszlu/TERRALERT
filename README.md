@@ -1,27 +1,32 @@
-# React + TypeScript + Vite
+<h1 align="center">TERRALERT</h1>
+<p align="center"><strong>3rd semester student project at SAE Institute Munich</strong>
+<br/>
+<h2>About</h2>
+I wanted to build a project that could be useful for other people and could in theory be a real project requested by a customer.
+This web-app shows currently occuring / recently occured natural disasters provided by the free <a href="https://eonet.gsfc.nasa.gov/what-is-eonet" target="_blank">NASA EONET API</a> and 
+uses the <a href="https://github.com/vasturiano/react-globe.gl/tree/master" target="_blank">react-globe repository by vasturiano</a> for visualization.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<h2>Goal and requirements</h2>
 
-Currently, two official plugins are available:
+The project required me to learn a new programming language/framework and from the available options I chose JavaScript + React.
+For this choice my project should include a UI with controls for the user to manipulate the app.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+<h2>Key learnings</h2>
 
-## Expanding the ESLint configuration
+- React + JavaScript 
+- Web-Development Basics
+- HTML + CSS 
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+<h2>Installation</h2>
 
-- Configure the top-level `parserOptions` property like this:
+This project is not intended to be installed an run but is hosted as a Github-Pages Deployment and can be reached via this <a href="https://laszlu.github.io/TERRALERT/" target="_blank">link</a>.
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
+<h2>Project status / Deadline</h2>
+Deadline for this project is 14/02/2024.
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+<h2>Credits</h2>
+
+- Author: Laszlo Ferreyra
+
+<h2>Copyright</h2>
+This project is licensed under the terms of the MIT license and protected by Udacity Honor Code and Community Code of Conduct.
