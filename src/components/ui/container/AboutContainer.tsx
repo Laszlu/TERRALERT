@@ -37,7 +37,9 @@ function AboutContainer(props: IAboutContainerProps) {
                     <h4>Development:</h4>
                     <p>
                         This website was developed by Laszlo Ferreyra as a university project for SAE Institutes Munich.<br/>
-                        © TERRALERT 2024
+                        © TERRALERT 2024<br/>
+                        More information can be found in the
+                        <a href={"https://github.com/Laszlu/TERRALERT"} target={"_blank"}>Github Repository</a>
                     </p>
                 </div>
                 <div className={"popup-text-container"}>
