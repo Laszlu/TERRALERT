@@ -33,4 +33,4 @@ Deadline for this project is 14/02/2024.
   - <a href="https://www.flaticon.com/free-icons/landslide" title="landslide icons">Landslide icons created by andinur - Flaticon</a>
 
 <h2>Copyright</h2>
-This project is licensed under the terms of the MIT license and protected by Udacity Honor Code and Community Code of Conduct.
+This project is licensed under the terms of the MIT license.
