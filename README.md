@@ -15,7 +15,11 @@ For this choice my project should include a UI with controls for the user to man
 
 - React + JavaScript 
 - Web-Development Basics
-- HTML + CSS 
+- HTML + CSS
+
+<h2>Disclaimer</h2>
+
+This website has not been optimized for mobile use, and may become unusable on mobile browsers.
 
 <h2>Installation</h2>
 
