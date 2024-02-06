@@ -29,7 +29,7 @@ function AboutContainer(props: IAboutContainerProps) {
                         According to NASA, this data is for general information purposes only
                         and should not be construed as “official” with regards to spatial or temporal extent.<br/>
                         The globe used for visualization is from the
-                        <a href={"https://github.com/vasturiano/react-globe.gl/tree/master#html-elements-layer"}> vasturiano react-globe.gl </a>
+                        <a href={"https://github.com/vasturiano/react-globe.gl/tree/master"}> vasturiano react-globe.gl </a>
                         Github repository.
                     </p>
                 </div>

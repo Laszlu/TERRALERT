@@ -31,9 +31,9 @@ body {
   background: transparent;
   border: none;
   padding: 0;
-  height: 40px;
-  width: 40px;
-  font-size: 40px;
+  height: 5vh;
+  width: 5vh;
+  font-size: 5vh;
   float: right;
   cursor: pointer;
   position: absolute;

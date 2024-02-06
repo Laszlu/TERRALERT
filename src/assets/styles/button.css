@@ -3,7 +3,7 @@
 }
 
 .cat-radio-btn-container img {
-    height: 40px;
+    height: 5vh;
 }
 
 .cat-radio-btn-container label {
@@ -12,7 +12,12 @@
 }
 
 .cat-radio-btn-container label span {
-    font-size: 20px;
+    font-size: 2vh;
+    font-weight: 600;
+}
+
+.cat-radio-btn-container label span:first-child {
+    height: 4vh;
 }
 
 .cat-radio-btn-container label span:last-child {
@@ -24,7 +29,8 @@
 }
 
 .example-data-checkbox span {
-    font-size: 20px;
+    font-size: 2vh;
+    font-weight: 600;
 }
 
 .error-reload-btn {
