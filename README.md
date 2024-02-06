@@ -27,6 +27,10 @@ Deadline for this project is 14/02/2024.
 <h2>Credits</h2>
 
 - Author: Laszlo Ferreyra
+- Image Attribution (Icons have been altered by Author):
+  - <a href="http://www.freepik.com/" target="_blank">Freepik</a>
+  - <a href="https://www.flaticon.com/free-icons/core" title="core icons" target="_blank">Core icons created by Aranagraphics - Flaticon</a>
+  - <a href="https://www.flaticon.com/free-icons/landslide" title="landslide icons">Landslide icons created by andinur - Flaticon</a>
 
 <h2>Copyright</h2>
 This project is licensed under the terms of the MIT license and protected by Udacity Honor Code and Community Code of Conduct.
