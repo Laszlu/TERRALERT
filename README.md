@@ -22,7 +22,7 @@ For this choice my project should include a UI with controls for the user to man
 This project is not intended to be installed an run but is hosted as a Github-Pages Deployment and can be reached via this <a href="https://laszlu.github.io/TERRALERT/" target="_blank">link</a>.
 
 <h2>Project status / Deadline</h2>
-Deadline for this project is 14/02/2024.
+This project will have been finished and submitted on 14.02.2024.
 
 <h2>Credits</h2>
 
