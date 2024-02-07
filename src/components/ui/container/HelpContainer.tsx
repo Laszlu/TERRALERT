@@ -28,7 +28,7 @@ function HelpContainer(props: IHelpContainerProps) {
                     <label>Globe:</label>
                     <p>Shows all Events from the current category<br/>Click the icon to bring up the Viewer</p>
                     <label>Controls:</label>
-                    <p>Switch category on globe<br/>Tick Checkbox to use older sample data</p>
+                    <p>Switch category shown on globe<br/>Tick checkbox to use older sample data</p>
                     <label>Viewer:</label>
                     <p>Shows all information for the selected event<br/>Click "Source" to open original source</p>
                 </div>
