@@ -3,7 +3,10 @@ import "../../../assets/styles/index.css";
 import {ViewerHeader} from "../headers/HeaderIndex.tsx";
 import {GITHUB_URL, MAIL_URL} from "../../../data/GlobalConstants.tsx";
 import {IAboutContainerProps} from "../../../data/Interfaces.tsx";
-import * as globalConstants from "../../../data/GlobalConstants.tsx";
+import IconButton from '@mui/material/IconButton';
+import Tooltip from '@mui/material/Tooltip';
+import EmailIcon from '@mui/icons-material/Email';
+import GitHubIcon from '@mui/icons-material/GitHub';
 
 function OpenLink(link: string){
     window.open(link, "_blank", "noreferrer");
@@ -49,16 +52,20 @@ function AboutContainer(props: IAboutContainerProps) {
                         <tr>
                             <td>
                                 <div className={"about-icon-table-left"}>
-                                    <img src={globalConstants.GITHUB_ICON}
-                                         alt={"Github Logo"} height={"20px"}
-                                         onClick={() => OpenLink(GITHUB_URL)}/>
+                                    <Tooltip title="View my Github profile">
+                                        <IconButton onClick={() => OpenLink(GITHUB_URL)}>
+                                            <GitHubIcon />
+                                        </IconButton>
+                                    </Tooltip>
                                 </div>
                             </td>
                             <td>
                                 <div className={"about-icon-table-right"}>
-                                    <img src={globalConstants.GMAIL_ICON}
-                                         alt={"Gmail Logo"} height={"20px"}
-                                         onClick={() => OpenLink(MAIL_URL)}/>
+                                    <Tooltip title={"Contact me via mail"}>
+                                        <IconButton onClick={() => OpenLink(MAIL_URL)}>
+                                            <EmailIcon/>
+                                        </IconButton>
+                                    </Tooltip>
                                 </div>
                             </td>
                         </tr>
