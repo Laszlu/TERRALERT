@@ -37,9 +37,9 @@ function AboutContainer(props: IAboutContainerProps) {
                     <h4>Development:</h4>
                     <p>
                         This website was developed by Laszlo Ferreyra as a university project for SAE Institutes Munich.<br/>
-                        © TERRALERT 2024<br/>
                         More information can be found in the
-                        <a href={"https://github.com/Laszlu/TERRALERT"} target={"_blank"}> Github Repository</a>
+                        <a href={"https://github.com/Laszlu/TERRALERT"} target={"_blank"}> Github Repository</a><br/>
+                        © TERRALERT 2024<br/>
                     </p>
                 </div>
                 <div className={"popup-text-container"}>
@@ -66,9 +66,10 @@ function AboutContainer(props: IAboutContainerProps) {
                     </table>
                 </div>
                 <div className={"popup-text-container"}>
-                    <h4>Privacy Policy:</h4>
+                    <h4>Privacy Policy & License:</h4>
                     <p>
                         This website does not collect any user data.
+                        This project is released under the <a href={"https://opensource.org/license/mit/"} target={"_blank"}>MIT license</a>.
                     </p>
                 </div>
             </div>
