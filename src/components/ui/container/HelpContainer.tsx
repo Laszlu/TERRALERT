@@ -30,7 +30,8 @@ function HelpContainer(props: IHelpContainerProps) {
                     <label>Controls:</label>
                     <p>Switch category shown on globe<br/>Tick checkbox to use older sample data</p>
                     <label>Viewer:</label>
-                    <p>Shows all information for the selected event<br/>Click "Source" to open original source</p>
+                    <p>Shows all information for the selected event<br/>Click "Source" to open original source<br/>
+                        (TERRALERT is not responsible for the original source)</p>
                 </div>
             </div>
             <div className={"help-controls-border"}>

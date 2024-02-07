@@ -43,6 +43,7 @@ function AboutContainer(props: IAboutContainerProps) {
                         More information can be found in the
                         <a href={"https://github.com/Laszlu/TERRALERT"} target={"_blank"}> Github Repository</a><br/>
                         © TERRALERT 2024<br/>
+                        Version 1.0.0
                     </p>
                 </div>
                 <div className={"popup-text-container"}>
