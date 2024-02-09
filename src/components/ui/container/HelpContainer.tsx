@@ -1,5 +1,6 @@
 import "../../../assets/styles/container.css";
 import "../../../assets/styles/index.css";
+import "../../../assets/styles/button.css";
 import {ViewerHeader} from "../headers/HeaderIndex.tsx";
 import {IHelpContainerProps} from "../../../data/Interfaces.tsx";
 

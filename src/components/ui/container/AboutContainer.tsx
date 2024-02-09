@@ -1,5 +1,6 @@
 import "../../../assets/styles/container.css";
 import "../../../assets/styles/index.css";
+import "../../../assets/styles/button.css";
 import {ViewerHeader} from "../headers/HeaderIndex.tsx";
 import {GITHUB_URL, MAIL_URL} from "../../../data/GlobalConstants.tsx";
 import {IAboutContainerProps} from "../../../data/Interfaces.tsx";

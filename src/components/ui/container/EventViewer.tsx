@@ -1,6 +1,7 @@
 import {ViewerHeader} from '../headers/HeaderIndex.tsx';
 import "../../../assets/styles/container.css";
 import "../../../assets/styles/index.css";
+import "../../../assets/styles/button.css";
 import {IEventViewerProps} from "../../../data/Interfaces.tsx";
 
 function OpenSourceLink(link: string){
@@ -15,9 +16,6 @@ function EventViewer(props: IEventViewerProps) {
 
     let selectedEvent = props.event;
 
-    // @ts-ignore
-    // @ts-ignore
-    // @ts-ignore
     return (
         <div className={"viewer-container"}>
             <div className={"viewer-background"}>

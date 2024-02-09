@@ -9,8 +9,6 @@ import {ICategoryRadioProps} from "../../../data/Interfaces.tsx";
 
 function CategoryRadioGroup (props: ICategoryRadioProps) {
 
-    //const [state, setState] = React.useState(category);
-
     const handleChange = (cat: EventCategory) => {
         //setState(cat);
         props.setShowEventViewer(false);

@@ -7,7 +7,7 @@ import {
 } from '../components/ui/container/ContainerIndex.tsx';
 import * as globalConstants from '../data/GlobalConstants.tsx';
 import UseWindowDimensions from '../hooks/WindowDimensionsHook.tsx';
-import {Categorie, EventCategory, Geometry, NaturalEvent, Source} from '../data/Model.tsx';
+import {Category, EventCategory, Geometry, NaturalEvent, Source} from '../data/Model.tsx';
 import useFetchHook from 'react-fetch-hook';
 import {useState} from "react";
 import EventViewer from "../components/ui/container/EventViewer.tsx";
@@ -15,7 +15,7 @@ import sampleData from "../data/sample-data.json";
 
 let emptyEvent =
     new NaturalEvent("none", "none", "none", "none",
-        [new Categorie("none", "none")], [new Source("none", "none")],
+        [new Category("none", "none")], [new Source("none", "none")],
         [new Geometry(0, "none", "none", "none", [0, 0])],
         "none")
 

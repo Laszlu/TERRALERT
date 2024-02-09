@@ -1,7 +1,6 @@
 export const APP_NAME = "TERRALERT";
 
 export const EONET_URL = "https://eonet.gsfc.nasa.gov/api/v3/events";
-export const EONET_SAMPLE_EVENTS = "https://eonet.gsfc.nasa.gov/api/v3/events?status=all";
 export const LOCATION_MUNICH = {lat: 48, lng: 11, altitude: 2.5};
 
 export const GITHUB_URL = "https://github.com/Laszlu";

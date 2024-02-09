@@ -48,3 +48,18 @@
 .error-reload-btn:hover {
     border: solid black 1px;
 }
+
+.close-button {
+    color: rgb(50 50 50);
+    background: transparent;
+    border: none;
+    padding: 0;
+    height: 5vh;
+    width: 5vh;
+    font-size: 5vh;
+    float: right;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    right: 2%
+}

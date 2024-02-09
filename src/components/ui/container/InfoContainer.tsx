@@ -24,7 +24,6 @@ function InfoContainer(props: IInfoContainerProps) {
 
     return(
         <div className={"info-background"}>
-            {/*<div className={"info-separator-horizontal"}/>*/}
             <div className={"info-button-background"}>
                 <div className={"info-element"} onClick={handleHelpClick}>
                     Help

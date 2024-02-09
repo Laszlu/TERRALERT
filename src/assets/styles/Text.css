@@ -1,3 +1,7 @@
+/* -------------------------------------------- */
+/* Main Header */
+/* -------------------------------------------- */
+
 .main-h1{
     font-size: 8vh;
     margin: 0;
@@ -9,21 +13,29 @@
             1px -1px 0 #000;
 }
 
+/* -------------------------------------------- */
+/* Controls */
+/* -------------------------------------------- */
+
 .controls-h2{
     font-size: 5vh;
     margin: 0 !important;
 }
+
+.toggle-label{
+    margin-left: 2vw;
+    font-weight: bold;
+}
+
+/* -------------------------------------------- */
+/* Viewer */
+/* -------------------------------------------- */
 
 .viewer-header-text{
     font-size: 4vh;
     margin: 0 5px !important;
     font-weight: bold;
     padding: 0 15px 0 0;
-}
-
-.toggle-label{
-    margin-left: 2vw;
-    font-weight: bold;
 }
 
 .viewer-category{

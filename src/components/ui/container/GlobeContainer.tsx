@@ -108,12 +108,6 @@ function GlobeContainer(props: IGlobeContainerProps){
                             el.onclick = () => {handleChange(el.id)};
                             return el;
                         }}
-                        /*ringsData={EventData}
-                        ringRepeatPeriod={1000}
-                        ringPropagationSpeed={0.4}
-                        ringMaxRadius={1.5}
-                        ringResolution={80}
-                        ringColor={() => "#EE4B2B"}*/
                     />
                 </div>
             )

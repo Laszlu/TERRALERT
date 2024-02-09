@@ -9,7 +9,7 @@ export enum EventCategory {
 	None = "None"
 }
 
-export class Categorie {
+export class Category {
 	public id: string;
 	public title: string;
 
@@ -57,7 +57,7 @@ export class NaturalEvent {
 	public title: string;
 	public description: string;
 	public link: string;
-	public categories: Categorie[];
+	public categories: Category[];
 	public sources: Source[];
 	public geometry: Geometry[];
 	public closed: string;
@@ -67,7 +67,7 @@ export class NaturalEvent {
 		title: string,
 		description: string,
 		link: string,
-		categories: Categorie[],
+		categories: Category[],
 		sources: Source[],
 		geometry: Geometry[],
 		closed: string
