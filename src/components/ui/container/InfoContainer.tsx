@@ -3,11 +3,23 @@ import {IInfoContainerProps} from "../../../data/Interfaces.tsx";
 
 function InfoContainer(props: IInfoContainerProps) {
     const handleAboutClick = () => {
-        props.setShowAboutElement(true);
+        if(props.showAboutElement){
+            props.setShowAboutElement(false);
+        }
+        else{
+            props.setShowHelpElement(false);
+            props.setShowAboutElement(true);
+        }
     };
 
     const handleHelpClick = () => {
-        props.setShowHelpElement(true);
+        if(props.showHelpElement){
+            props.setShowHelpElement(false);
+        }
+        else{
+            props.setShowAboutElement(false);
+            props.setShowHelpElement(true);
+        }
     };
 
     return(
